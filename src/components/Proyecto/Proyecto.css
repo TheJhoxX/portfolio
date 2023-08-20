@@ -1,0 +1,34 @@
+.elemento-carrusel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .texto-carrusel {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1rem;
+    text-align: justify;
+    overflow-y:auto;
+    height: 100%;
+  }
+  
+  .imagen-carrusel {
+    max-width: 50%;
+    max-height: 100%;
+    margin: 1rem;
+  }
+  
+  .enlace-proyecto {
+    color: blueviolet;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  

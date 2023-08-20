@@ -1,0 +1,9 @@
+
+
+.contenido {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }

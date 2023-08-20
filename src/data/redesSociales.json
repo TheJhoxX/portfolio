@@ -1,0 +1,7 @@
+{
+    "redesSociales": [
+        {"nombre": "Github", "enlace": "https://github.com/TheJhoxX", "img": "/githubLogo.svg"},
+        {"nombre": "Linkedin", "enlace": "https://www.linkedin.com/in/victor-jorge-sibaja-156899196", "img": "/linkedinLogo.svg"},
+        {"nombre": "Enviar un correo electrónico", "enlace": "mailto:victorjorgesibaja@gmail.com", "img": "/mail.svg"}
+    ]
+}
