@@ -11,7 +11,7 @@ export default function App() {
       label: "Inicio"
     },
     {
-      path: "../proyectoass/",
+      path: "../proyectos/",
       label: "Proyectos"
     }
   ];
