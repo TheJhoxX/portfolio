@@ -11,7 +11,7 @@ export default function App() {
     <div className="flex flex-col items-center justify-around w-full mt-8 gap-20">
         <CartaPrincipal/>
         <AcordeonInformacion />
-        <div className="flex flex-row items-center justify-center">
+        <div className="flex e flex-row items-center justify-center">
           {redesSociales.map(x => 
             <RedSocial key={x.nombre} enlace={x.enlace} img={x.img}/>     
           )}
