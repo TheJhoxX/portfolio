@@ -7,11 +7,11 @@ export default function App() {
 
   const menuItems = [
     {
-      path: "index.html",
+      path: "../",
       label: "Inicio"
     },
     {
-      path: "proyectos.html",
+      path: "../proyectos/",
       label: "Proyectos"
     }
   ];
