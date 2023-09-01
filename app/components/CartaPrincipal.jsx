@@ -2,8 +2,6 @@ import React from "react";
 import {Card, Image, CardBody} from "@nextui-org/react";
 import TextoCartas from "./TextoCartas"
 
-const url = "foto-personal.JPG"
-
 export default function cartaPrincipal() {
     return (
         <Card
