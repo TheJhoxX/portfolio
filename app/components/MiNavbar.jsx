@@ -1,16 +1,26 @@
-'use client'
+"use client";
 import React from "react";
-import {Navbar, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
 
 const menuItems = [
   {
     path: "/",
-    label: "Inicio"
+    label: "Inicio",
   },
   {
     path: "/proyectos",
-    label: "Proyectos"
-  }
+    label: "Proyectos",
+  },
 ];
 
 export default function App() {
@@ -23,8 +33,10 @@ export default function App() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand >
-          <p className="text-foreground font-bold text-lg drop-shadow-glow">TheJhoxX</p>
+        <NavbarBrand>
+          <p className="text-foreground font-bold text-lg drop-shadow-glow">
+            TheJhoxX
+          </p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -35,7 +47,7 @@ export default function App() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground"  href="/proyectos">
+          <Link color="foreground" href="/proyectos">
             <strong className="drop-shadow-glow">Proyectos</strong>
           </Link>
         </NavbarItem>
@@ -50,6 +62,7 @@ export default function App() {
               size="lg"
             >
               <strong>{item.label}</strong>
+              <div></div>
             </Link>
           </NavbarMenuItem>
         ))}
