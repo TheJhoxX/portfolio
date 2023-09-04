@@ -39,7 +39,7 @@
         "img": "react-logo.png",
         "enlace": "https://github.com/TheJhoxX/portfolio",
         "nombre": "Portfolio",
-        "descripcion": "Este portfolio lo he tomado como primera oportunidad para practicar React, teconología con la que lo he desarrollado. Irá siendo ampliado conforme desarrolle nuevos proyectos o adquiera nuevos conocimientos",
+        "descripcion": "Primero el portfolio lo desarrolle con React puro, pero no terminé del todo satisfecho y decidí rediseñarlo con un mejor aspecto y además así poder ir probando algunos nuevos conocimientos de Next.js",
         "tecnologias": "Next.js, React, TailwindCSS"
       }
     ]

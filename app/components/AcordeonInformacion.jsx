@@ -10,7 +10,7 @@ export default function acordeonInfo(){
             <AccordionItem key="1" 
               aria-label="INTERESES" 
               title="INTERESES">
-                <p className="font-normal">
+                <p className="font-normal text-foreground">
                 Fundamentalmente estoy interesado en el desarrollo web fullstack
                 y me gustaría también aprender sobre el desarrollo de aplicaciones
                 web, tanto para Android como para iOS
@@ -19,7 +19,7 @@ export default function acordeonInfo(){
             <AccordionItem key="2" 
               aria-label="TECNOLOGÍAS CONOCIDAS" 
               title="TECNOLOGÍAS CONOCIDAS">
-                <p className="font-normal">
+                <p className="font-normal text-foreground">
                 Algunas de las tecnologías con las que he trabajado tanto en mi 
                 formación académica como autodidacta son: MariaDB, Git, Java, C,
                 Python, JavaScript, React, Next.js, Node.js, TailwindCSS...

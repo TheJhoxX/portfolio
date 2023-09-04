@@ -5,13 +5,14 @@ import RedSocial from './RedSocial'
 
 export default function proyecto({img, enlace, nombre, descripcion, tecnologias}) {
   return (
-    <div className='ease-in duration-300 flex w-11/12 justify-center items-center '>
-        <Card isBlurred  className="bg-transparent drop-shadow-glow border py-4 flex w-full h-96 hover-gradient transform hover:scale-105 transition-transform ease-in-out duration-300 ">
+    <div className='flex w-11/12 justify-center items-center'>
+        <div className="rounded-lg duration-700 hover:bg-purple-950/[0.2] hover:duration-700 hover:-translate-y-1">
+        <Card isBlurred className="rounded-lg drop-shadow-glow bg-transparent border py-4 flex w-full h-96">
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
             <h4 className="font-bold text-large">{nombre}</h4>
             <small className="text-default-500">{tecnologias}</small>
             <div className='flex items-center gap-4'>
-              <p>Enlace al proyecto: </p>
+              <p className="">Enlace al proyecto: </p>
               <RedSocial enlace={enlace} img="github-logo.svg"/>
             </div>
           </CardHeader>
@@ -23,7 +24,8 @@ export default function proyecto({img, enlace, nombre, descripcion, tecnologias}
               contenido={descripcion}
               />
           </CardBody>
-        </Card>      
+        </Card>  
+        </div>      
     </div>
   );
 }

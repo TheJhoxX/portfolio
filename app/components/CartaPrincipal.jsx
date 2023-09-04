@@ -8,7 +8,7 @@ export default function cartaPrincipal() {
         radius="lg"
         className="drop-shadow-glow border-none w-9/12 max-w-xxl h-60 max-h-full"
         >
-            <CardBody className="flex flex-row justify-around items-center gap-8 w-full max-h-full bg-gradient-to-tr from-purple-950 to-transparent">
+            <CardBody className="flex flex-row justify-around items-center gap-8 w-full max-h-full dark:bg-gradient-to-tr from-purple-950 to-transparent">
                 <div className="flex w-2/5 h-full items-center justify-center">
                     <Image alt="" className="max-h-52" src="foto-personal.JPG"/>
                 </div>

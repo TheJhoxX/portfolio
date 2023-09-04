@@ -2,19 +2,19 @@
 import React from "react";
 import {Navbar, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 
+const menuItems = [
+  {
+    path: "/",
+    label: "Inicio"
+  },
+  {
+    path: "/proyectos",
+    label: "Proyectos"
+  }
+];
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    {
-      path: "/",
-      label: "Inicio"
-    },
-    {
-      path: "/proyectos",
-      label: "Proyectos"
-    }
-  ];
 
   return (
     <Navbar isBordered isBlurred onMenuOpenChange={setIsMenuOpen}>
@@ -23,8 +23,8 @@ export default function App() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
-          <p className="font-bold text-lg drop-shadow-glow">TheJhoxX</p>
+        <NavbarBrand >
+          <p className="text-foreground font-bold text-lg drop-shadow-glow">TheJhoxX</p>
         </NavbarBrand>
       </NavbarContent>
 
