@@ -44,7 +44,7 @@
       },
       {
         "img": "todo-app.png",
-        "enlace": "https://github.com/TheJhoxX/todoApp",
+        "enlace": "https://github.com/TheJhoxX/todo-app",
         "nombre": "todo-app",
         "descripcion": "Consiste en una clásica aplicación de tareas. La aplicación dispone de un login que permite tanto identificar usuarios como registrarlos. Una vez identificado un usuario, a no ser de que cierre sesión intencionalmente, no se le volverá a pedir que la inicie y se empleará una cookie como medio de inicio de sesión. En la aplicación se disponen de 3 tipos de tareas: importante, normal u opcional y será posible: añadir una tarea, eliminar las tareas seleccionadas, filtrar en función de la importancia de la tarea... El proyecto se encuentra aún en desarrollo",
         "tecnologias": "Next.js, React, TailwindCSS, TypeScript, Express, Express-session, MariaDB"
