@@ -997,10 +997,6 @@ video {
 .w-unit-8 {
   width: var(--nextui-spacing-unit-8);
 }
-.w-max {
-  width: -moz-max-content;
-  width: max-content;
-}
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -3827,12 +3823,6 @@ body {
 
 .hover\:bg-purple-950\/\[0\.3\]:hover {
   background-color: rgb(59 7 100 / 0.3);
-}
-
-
-.hover\:bg-purple-950:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 7 100 / var(--tw-bg-opacity));
 }
 
 
