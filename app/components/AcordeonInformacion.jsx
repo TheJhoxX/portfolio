@@ -8,7 +8,7 @@ export default function acordeonInfo() {
           <p className="font-normal text-foreground">
             Fundamentalmente estoy interesado en el desarrollo web fullstack y
             me gustaría también aprender sobre el desarrollo de aplicaciones
-            web, tanto para Android como para iOS
+            para dispositivos móviles, tanto para Android como para iOS
           </p>
         </AccordionItem>
         <AccordionItem
