@@ -1440,6 +1440,9 @@ video {
 .rounded-small {
   border-radius: var(--nextui-radius-small);
 }
+.rounded-xl {
+  border-radius: 0.75rem;
+}
 .\!rounded-l-none {
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
@@ -1773,6 +1776,9 @@ video {
 }
 .p-5 {
   padding: 1.25rem;
+}
+.p-20 {
+  padding: 5rem;
 }
 .\!px-1 {
   padding-left: 0.25rem !important;

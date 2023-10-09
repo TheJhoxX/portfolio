@@ -12,10 +12,10 @@ export default function proyecto({
 }) {
   return (
     <div className="flex w-11/12 justify-center items-center">
-      <div className="w-full h-full rounded-lg duration-700 hover:bg-purple-950/[0.3] hover:duration-700 hover:-translate-y-1">
+      <div className="w-full h-full rounded-xl duration-700 hover:bg-purple-950/[0.3] hover:duration-700 hover:-translate-y-1">
         <Card
           isBlurred
-          className="rounded-lg drop-shadow-glow bg-transparent border py-4 flex w-full h-96"
+          className="rounded-xl drop-shadow-glow bg-transparent border py-4 flex w-full h-96"
         >
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
             <h4 className="font-bold text-large">{nombre}</h4>
