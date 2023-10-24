@@ -1777,9 +1777,6 @@ video {
 .p-5 {
   padding: 1.25rem;
 }
-.p-20 {
-  padding: 5rem;
-}
 .\!px-1 {
   padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
@@ -6201,6 +6198,38 @@ body {
 
   .sm\:\[--slide-exit\:0px\] {
     --slide-exit: 0px;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+}
+
+
+@media (min-width: 1024px) {
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
   }
 }
 

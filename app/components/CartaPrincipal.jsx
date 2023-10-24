@@ -10,7 +10,8 @@ export default function cartaPrincipal() {
         >
             <CardBody className="flex flex-row justify-around items-center gap-8 w-full max-h-full dark:bg-gradient-to-tr from-purple-950 to-transparent">
                 <div className="flex w-2/5 h-full items-center justify-center">
-                    <Image alt="" className="max-h-52" src="foto-personal.JPG"/>
+                    <Image alt="" className="max-h-52 hidden md:block lg:block" src="foto-personal.JPG" />
+                    <Image alt="" className="max-h-52 md:hidden lg:hidden" src="foto-personal-small.JPG"/>
                 </div>
                 <TextoCartas
                     titulo="Víctor Jorge Sibaja" 
