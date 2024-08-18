@@ -1,54 +1,59 @@
 {
-    "proyectos": [
-      {
-        "img": "quicksort.png",
-        "enlace": "https://github.com/TheJhoxX/p1ADA",
-        "nombre": "Mejora del algoritmo clásico: Quicksort",
-        "descripcion": "Mejora del algoritmo Quicksort usando el algoritmo de Inserción Directa para cubrir casos en los que la eficiencia del algoritmo normal se vea comprometida. Fue realizada como práctica para la asignatura: Análisis y Diseño de Algoritmos",
-        "tecnologias": "Java"
-      },
-      {
-        "img": "imagenBash.png",
-        "enlace": "https://github.com/TheJhoxX/UVash",
-        "nombre": "UVash",
-        "descripcion": "Programación de un Shell con modo interactivo o no interactivo realizada para la asignatura: Estructura de Sistemas Operativos",
-        "tecnologias": "C"
-      },
-      {
-        "img": "logo-java.png",
-        "enlace": "https://github.com/TheJhoxX/p2ADA",
-        "nombre": "Problema de las torres",
-        "descripcion": "Resolución de un problema planteado para la asignatura: Análisis y Diseño de Algoritmos. El objetivo era resolverlo mediante Programación dinámica pero mi compañero y yo llegamos a una solución mediante una estrategia similar pero menos eficiente. El proyecto además del código, contiene algunas entradas de prueba, un pdf con el enunciado y otro con una descripción sobre la elaboración de la práctica",
-        "tecnologias": "Java"
-      },
-      {
-        "img": "logoNested.png",
-        "enlace": "https://github.com/TheJhoxX/Nested",
-        "nombre": "Nested",
-        "descripcion": "Se trata de una aplicación web desarrollada para la asignatura: Servicios y Sistemas Web. El proyecto esta realizado empleando: Servlets, MariaDB, HTML, CSS, XML y JS. También se han empleado las APIs: Nominatim y Leaflet (que emplean OpenStreetMap) para el uso de mapas interactivos. La aplicación facilita la organización de eventos universtiarios, ya sean privados o públicos. Para más información sobre las funcionalidades no duden en contactarme",
-        "tecnologias": "Java, Servlets, JSP, JavaScript, HTML, CSS, MariaDB"
-      },
-      {
-        "img": "grafo.png",
-        "enlace": "https://github.com/TheJhoxX/CARALIBRO---La-Red-Social",
-        "nombre": "Caralibro: la red social",
-        "descripcion": "Proyecto realizado con Python para la asignatura: Estructuras de Datos y Algoritmos. En ésta se buscaba encontrar conexiones entre usuarios mediante el uso de grafos (primera parte) y la mejora del rendimiento del algoritmo de la primera parte utilizando estructuras de datos como una Hash Table. Enunciado y ficheros de prueba se encuentran en el proyecto",
-        "tecnologias": "Python"
-      },
-      {
-        "img": "react-logo.png",
-        "enlace": "https://github.com/TheJhoxX/portfolio",
-        "nombre": "Portfolio",
-        "descripcion": "Primero el portfolio lo desarrolle con React puro, pero no terminé del todo satisfecho y decidí rediseñarlo con un mejor aspecto y además así poder ir probando algunos nuevos conocimientos de Next.js",
-        "tecnologias": "Next.js, React, TailwindCSS"
-      },
-      {
-        "img": "todo-app.png",
-        "enlace": "https://github.com/TheJhoxX/todo-app",
-        "nombre": "todo-app",
-        "descripcion": "Consiste en una clásica aplicación de tareas. La aplicación dispone de un login que permite tanto identificar usuarios como registrarlos. Una vez identificado un usuario, a no ser de que cierre sesión intencionalmente, no se le volverá a pedir que la inicie hasta pasado un día y se empleará una cookie como medio de inicio de sesión. En la aplicación se disponen de 3 tipos de tareas: importante, normal u opcional y será posible: añadir una tarea, eliminar las tareas seleccionadas, filtrar en función de la importancia de la tarea... El proyecto está terminado y traté de desplegarlo, todo estaba correctamente conectado pero por alguna razón no se enviaban las cookies de cliente a servidor, por lo que el backend no podía mantener la sesión del usuario",
-        "tecnologias": "Next.js, React, TailwindCSS, TypeScript, Express, Express-session, MariaDB"
-      }
-    ]
+  "proyectos": [
+    {
+      "img": "quicksort.png",
+      "enlace": "https://github.com/TheJhoxX/p1ADA",
+      "nombre": "Mejora del algoritmo clásico: Quicksort",
+      "descripcion": "Mejora del algoritmo Quicksort usando el algoritmo de Inserción Directa para cubrir casos en los que la eficiencia del algoritmo normal se vea comprometida. Fue realizada como práctica para la asignatura: Análisis y Diseño de Algoritmos",
+      "tecnologias": "Java"
+    },
+    {
+      "img": "imagenBash.png",
+      "enlace": "https://github.com/TheJhoxX/UVash",
+      "nombre": "UVash",
+      "descripcion": "Programación de un Shell con modo interactivo o no interactivo realizada para la asignatura: Estructura de Sistemas Operativos",
+      "tecnologias": "C"
+    },
+    {
+      "img": "logo-java.png",
+      "enlace": "https://github.com/TheJhoxX/p2ADA",
+      "nombre": "Problema de las torres",
+      "descripcion": "Resolución de un problema planteado para la asignatura: Análisis y Diseño de Algoritmos. El objetivo era resolverlo mediante Programación dinámica pero mi compañero y yo llegamos a una solución mediante una estrategia similar pero menos eficiente. El proyecto además del código, contiene algunas entradas de prueba, un pdf con el enunciado y otro con una descripción sobre la elaboración de la práctica",
+      "tecnologias": "Java"
+    },
+    {
+      "img": "logoNested.png",
+      "enlace": "https://github.com/TheJhoxX/Nested",
+      "nombre": "Nested",
+      "descripcion": "Se trata de una aplicación web desarrollada para la asignatura: Servicios y Sistemas Web. El proyecto esta realizado empleando: Servlets, MariaDB, HTML, CSS, XML y JS. También se han empleado las APIs: Nominatim y Leaflet (que emplean OpenStreetMap) para el uso de mapas interactivos. La aplicación facilita la organización de eventos universtiarios, ya sean privados o públicos. Para más información sobre las funcionalidades no duden en contactarme",
+      "tecnologias": "Java, Servlets, JSP, JavaScript, HTML, CSS, MariaDB"
+    },
+    {
+      "img": "grafo.png",
+      "enlace": "https://github.com/TheJhoxX/CARALIBRO---La-Red-Social",
+      "nombre": "Caralibro: la red social",
+      "descripcion": "Proyecto realizado con Python para la asignatura: Estructuras de Datos y Algoritmos. En ésta se buscaba encontrar conexiones entre usuarios mediante el uso de grafos (primera parte) y la mejora del rendimiento del algoritmo de la primera parte utilizando estructuras de datos como una Hash Table. Enunciado y ficheros de prueba se encuentran en el proyecto",
+      "tecnologias": "Python"
+    },
+    {
+      "img": "react-logo.png",
+      "enlace": "https://github.com/TheJhoxX/portfolio",
+      "nombre": "Portfolio",
+      "descripcion": "Primero el portfolio lo desarrolle con React puro, pero no terminé del todo satisfecho y decidí rediseñarlo con un mejor aspecto y además así poder ir probando algunos nuevos conocimientos de Next.js",
+      "tecnologias": "Next.js, React, TailwindCSS"
+    },
+    {
+      "img": "todo-app.png",
+      "enlace": "https://github.com/TheJhoxX/todo-app",
+      "nombre": "todo-app",
+      "descripcion": "Consiste en una clásica aplicación de tareas. La aplicación dispone de un login que permite tanto identificar usuarios como registrarlos. Una vez identificado un usuario, a no ser de que cierre sesión intencionalmente, no se le volverá a pedir que la inicie hasta pasado un día y se empleará una cookie como medio de inicio de sesión. En la aplicación se disponen de 3 tipos de tareas: importante, normal u opcional y será posible: añadir una tarea, eliminar las tareas seleccionadas, filtrar en función de la importancia de la tarea... El proyecto está terminado y traté de desplegarlo, todo estaba correctamente conectado pero por alguna razón no se enviaban las cookies de cliente a servidor, por lo que el backend no podía mantener la sesión del usuario",
+      "tecnologias": "Next.js, React, TailwindCSS, TypeScript, Express, Express-session, MariaDB"
+    },
+    {
+      "img": "imagen-sugus.png",
+      "nombre": "Web SugusUVa",
+      "descripcion": "Web para la organización escolar de ciberseguridad: \"Sugus\" de la Universidad de Valladolid (aún pendiente de despliegue)",
+      "tecnologias": "Next.js, React, TailwindCSS, TypeScript, React Three Fiber"
+    }
+  ]
 }
-  

@@ -21,8 +21,12 @@ export default function proyecto({
             <h4 className="font-bold text-large">{nombre}</h4>
             <small className="text-default-500">{tecnologias}</small>
             <div className="flex items-center gap-4">
-              <p className="">Enlace al proyecto: </p>
-              <RedSocial enlace={enlace} img="github-logo.svg" />
+              {enlace && (
+                <div className="flex items-center gap-4">
+                  <p className="flex items-center">Enlace al proyecto: </p>
+                  <RedSocial enlace={enlace} img="github-logo.svg" />
+                </div>
+              )}
             </div>
           </CardHeader>
           <CardBody className="flex h-80 gap-4 flex-row justify-around items-center max-h-full py-2">
