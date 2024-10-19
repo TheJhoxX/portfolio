@@ -1,19 +1,40 @@
+import Icon from "@/app/components/Icon";
+import { IconType } from "@/utils/IconType";
+import GlassContainer from "./components/GlassContainer";
+
 export default function Home() {
-  return (
-    <div className="w-full h-screen flex items-center justify-center bg-pattern">
-      <div
-        className={`flex flex-col h-fit items-center justify-center gap-8 w-9/12`}
-      >
-        <p className="w-full text-8xl md:text-9xl font-semibold text-pretty font-geistMono">
-          Víctor Jorge Sibaja
-        </p>
-        {/* Ocupación actual */}
-        <div className="w-full flex h-full gap-2">
-          <div className="w-full text-pretty font-geistMono flex flex-col items-start gap-2 border-l-primary border-l-2 px-2">
-            <p>Software Developer at GMV</p>
-            <p>Software Engineering Student</p>
-          </div>
+  const actualWorkAndSocial: React.ReactElement = (
+    <div className="w-full flex flex-col md:flex-row justify-center items-center md:justify-start h-full gap-2">
+      {/* Actual work */}
+      <GlassContainer>
+        <div className="w-full text-center font-geistMono flex items-center justify-between px-2 gap-2">
+          <p>Software Developer at GMV</p>
+          <p>Software Engineering Student</p>
         </div>
+      </GlassContainer>
+      {/* Contact */}
+    </div>
+  );
+
+  const nameTitle: React.ReactElement = (
+    <p className="w-full text-8xl md:text-9xl font-semibold text-center font-geistMono">
+      Víctor Jorge Sibaja
+    </p>
+  );
+
+  return (
+    <div className="w-full h-screen flex flex-col md:flex-row items-center justify-center bg-pattern gap-6">
+      {/* Name and occupation container */}
+      <div
+        className={`flex flex-col h-fit items-center justify-center md:justify-between  gap-6 w-9/12 md:w-3/5`}
+      >
+        {nameTitle}
+        <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-2">
+          <Icon iconType={IconType.Linkedin} />
+          <Icon iconType={IconType.Github} />
+          <Icon iconType={IconType.Mail} />
+        </div>
+        {actualWorkAndSocial}
       </div>
     </div>
   );

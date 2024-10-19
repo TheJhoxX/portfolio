@@ -15,8 +15,7 @@ const config: Config = {
         primary: "#6E44FF",
         secondary: "#F52F57",
         accent: "#AFFC41",
-        "accent-black": "#000000",
-        "accent-white": "#ffffff",
+        "background-accent": "var(--background-accent)",
       },
       fontFamily: {
         geistSans: ["var(--font-geist-sans)", "sans-serif"],
