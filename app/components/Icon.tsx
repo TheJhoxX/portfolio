@@ -8,6 +8,9 @@ export default function Icon(parameters: IIconParamters) {
 
   const { iconType } = parameters;
 
+  {
+    /* Returns an svg icon based in the type of the icon */
+  }
   const generateIcon: () => React.ReactElement = () => {
     if (iconType == IconType.Linkedin) {
       return (
@@ -67,7 +70,7 @@ export default function Icon(parameters: IIconParamters) {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDarkMode(prefersDark.matches);
 
-    const handleChange = (e) => setIsDarkMode(e.matches);
+    const handleChange = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
     prefersDark.addEventListener("change", handleChange);
 
     return () => prefersDark.removeEventListener("change", handleChange);

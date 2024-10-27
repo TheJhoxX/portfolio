@@ -14,9 +14,11 @@ export default function GlassContainer({
 
   return (
     <div
-      className={`h-full w-full p-2 bg-transparent bg-opacity-10
+      className={`h-full max-h-full bg-green-500 w-full p-2 bg-transparent bg-opacity-10
         rounded-xl bg-clip-padding backdrop-filter backdrop-blur-sm
-          ${borderStyle()}`}
+          ${borderStyle()}
+          flex items-center justify-center
+          overflow-hidden`}
     >
       {children}
     </div>

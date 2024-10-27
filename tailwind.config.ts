@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import lineClamp from "@tailwindcss/line-clamp"; // Importa el plugin aquí
 
 const config: Config = {
   content: [
@@ -22,14 +23,45 @@ const config: Config = {
         geistMono: ["var(--font-geist-mono)", "monospace"],
       },
       backgroundImage: {
-        "gradient-text-light":
-          "linear-gradient(to top, #000000 70%, transparent 100%)",
-        "gradient-text-dark":
-          "linear-gradient(to top, #ffffff 70%, transparent 100%)",
+        "text-foreground-gradient":
+          "linear-gradient(to top, var(--foreground) 70%, transparent 100%)",
         pattern: "var(--pattern)",
+        "gradient-primary-transparent":
+          "linear-gradient(to right, transparent  1%, var(--primary) 100%)",
+      },
+      maxHeight: {
+        "quarter-screen": "25vh",
+        "half-screen": "50vh",
+        "1/2": "50%",
+        "1/5": "25%",
+      },
+      height: {
+        half: "50%",
+        "quarter-screen": "25vh",
+        "half-screen": "50vh",
+        "1/2": "50%",
+        "1/5": "25%",
+      },
+      minHeight: {
+        "half-screen": "50vh",
+        "quarter-screen": "25vh",
+        "1/2": "50%",
+        "1/5": "25%",
+      },
+      width: {
+        "half-screen": "50vw",
+        "quarter-screen": "25vw",
+      },
+      maxWidth: {
+        "half-screen": "50vw",
+        "quarter-screen": "25vh",
+      },
+      minWidth: {
+        "half-screen": "50vw",
+        "quarter-screen": "25vh",
       },
     },
   },
-  plugins: [],
+  plugins: [lineClamp], // Usa la sintaxis de importación ES6 aquí
 };
 export default config;
