@@ -12,7 +12,7 @@ const image: React.ReactElement = (
 
 const projectTitle: React.ReactElement = (
   <p className="font-geistMono text-pretty text-center w-full font-semibold text-4xl md:text-5xl overflow-ellipsis line-clamp-3 md:line-clamp-4">
-    SUGUSUVa WebSite
+    SUGUSUVa WebSite2
   </p>
 );
 
