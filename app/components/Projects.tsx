@@ -1,18 +1,16 @@
 import ProgressBar from "./ProgressBar";
 
 const image: React.ReactElement = (
-  <div className="flex h-full max-h-full w-full items-center justify-center rounded-xl ">
-    <img
-      src="/imagen-sugus.png"
-      className="h-full w-auto rounded-xl md:h-full md:w-auto"
-      alt="Project image"
-    />
-  </div>
+  <img
+    src="/imagen-sugus.png"
+    className="h-full w-auto rounded-xl md:w-full md:h-auto"
+    alt="Project image"
+  />
 );
 
 const projectTitle: React.ReactElement = (
-  <p className="font-geistMono text-pretty text-center w-full font-semibold text-4xl md:text-5xl overflow-ellipsis line-clamp-3 md:line-clamp-4">
-    SUGUSUVa WebSite2
+  <p className="font-geistSans text-pretty text-center w-full font-semibold text-4xl md:text-5xl overflow-ellipsis line-clamp-3 md:line-clamp-4">
+    SUGUSUVa WebSite SUGUSUVa WebSite SUGUSUVa WebSite
   </p>
 );
 

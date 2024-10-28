@@ -29,7 +29,7 @@ export default function SocialAndOccupation() {
         className={`flex flex-col h-fit items-center justify-center md:justify-between gap-8 w-9/12 md:w-3/5`}
       >
         {nameTitle}
-        <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-2">
+        <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-1">
           <Icon iconType={IconType.Linkedin} />
           <Icon iconType={IconType.Github} />
           <Icon iconType={IconType.Mail} />
