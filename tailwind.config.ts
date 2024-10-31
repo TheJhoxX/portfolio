@@ -21,6 +21,7 @@ const config: Config = {
       fontFamily: {
         geistSans: ["var(--font-geist-sans)", "sans-serif"],
         geistMono: ["var(--font-geist-mono)", "monospace"],
+        sf: ["var(--font-sf)", "Helvetica", "sans-serif"], // Alias específico
       },
       backgroundImage: {
         "text-foreground-gradient":
@@ -28,6 +29,8 @@ const config: Config = {
         pattern: "var(--pattern)",
         "gradient-primary-transparent":
           "linear-gradient(to right, transparent  1%, var(--primary) 100%)",
+        "scroll-gradient":
+          "linear-gradient(to top, var(--foreground) 90%, var(--background) 100%)",
       },
       maxHeight: {
         "quarter-screen": "25vh",
