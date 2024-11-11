@@ -2,7 +2,6 @@ import GlassContainer from "./GlassContainer";
 import Icon from "./Icon";
 import { IconType } from "@/utils/IconType";
 import Tooltip from "@/app/components/Tooltip";
-import Link from "next/link";
 
 export default function SocialAndOccupation() {
   const actualWorkAndSocial: React.ReactElement = (
@@ -19,7 +18,7 @@ export default function SocialAndOccupation() {
   );
 
   const nameTitle: React.ReactElement = (
-    <p className="w-full text-7xl md:text-9xl font-bold text-center font-sf">
+    <p className="w-full text-8xl md:text-9xl font-bold text-center font-sf">
       Víctor Jorge Sibaja
     </p>
   );
@@ -33,31 +32,22 @@ export default function SocialAndOccupation() {
         {nameTitle}
         <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-4">
           <Tooltip text="My LinkedIn">
-            <Link
-              href="https://www.linkedin.com/in/victor-jorge-sibaja-156899196"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon iconType={IconType.Linkedin} />
-            </Link>
+            <Icon
+              link="https://www.linkedin.com/in/victor-jorge-sibaja-156899196"
+              iconType={IconType.Linkedin}
+            />
           </Tooltip>
           <Tooltip text="My Github">
-            <Link
-              href="https://github.com/TheJhoxX"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon iconType={IconType.Github} />
-            </Link>
+            <Icon
+              link="https://github.com/TheJhoxX"
+              iconType={IconType.Github}
+            />
           </Tooltip>
           <Tooltip text="Mail me">
-            <Link
-              href="mailto:victorjorgesibaja@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon iconType={IconType.Mail} />
-            </Link>
+            <Icon
+              link="mailto:victorjorgesibaja@gmail.com"
+              iconType={IconType.Mail}
+            />
           </Tooltip>
         </div>
         {actualWorkAndSocial}

@@ -2,15 +2,11 @@
 import { useState, useEffect } from "react";
 import { IconType } from "@/utils/IconType";
 import { IIconParamters } from "@/utils/IIconParameters";
+import Link from "next/link";
 
-export default function Icon(parameters: IIconParamters) {
+export default function Icon({ iconType, link }: IIconParamters) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const { iconType } = parameters;
-
-  {
-    /* Returns an svg icon based in the type of the icon */
-  }
   const generateIcon: () => React.ReactElement = () => {
     if (iconType == IconType.Linkedin) {
       return (
@@ -81,5 +77,13 @@ export default function Icon(parameters: IIconParamters) {
     return () => prefersDark.removeEventListener("change", handleChange);
   }, []);
 
-  return generateIcon();
+  if (link) {
+    return (
+      <Link href={link} target="_blank" rel="noopener noreferrer">
+        {generateIcon()}
+      </Link>
+    );
+  } else {
+    return generateIcon();
+  }
 }

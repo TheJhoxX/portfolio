@@ -4,25 +4,41 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Tooltip({ children, text }: ITooltip) {
   const triggerRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState<"left" | "right">("right");
-  const [isHovered, setIsHovered] = useState(false); // Controla si está en hover
-  const [animation, setAnimation] = useState("tooltip-grow"); // Controla la animación actual
+  const [horizontalPosition, setHorizontalPosition] = useState<
+    "left" | "right"
+  >("right");
+  const [verticalPosition, setVerticalPosition] = useState<"top" | "bottom">(
+    "top"
+  );
+  const [isHovered, setIsHovered] = useState(false);
+  const [animation, setAnimation] = useState("tooltip-grow");
 
   useEffect(() => {
     const handlePosition = () => {
       if (triggerRef.current) {
         const rect = triggerRef.current.getBoundingClientRect();
-        const quarterScreen = window.innerWidth / 4;
-        setPosition(rect.left < quarterScreen * 3 ? "right" : "left");
+        const quarterVerticalScreen = window.innerHeight / 4;
+        const threeQuartersHorizontalScreen = (window.innerWidth * 3) / 4;
+
+        setVerticalPosition(
+          rect.top < quarterVerticalScreen ? "bottom" : "top"
+        );
+        setHorizontalPosition(
+          rect.left < threeQuartersHorizontalScreen ? "right" : "left"
+        );
       }
     };
 
     // Calcular posición inicial
     handlePosition();
 
-    // Recalcular si se cambia el tamaño de la ventana
+    // Recalcular si se cambia el tamaño de la ventana o al hacer scroll
     window.addEventListener("resize", handlePosition);
-    return () => window.removeEventListener("resize", handlePosition);
+    window.addEventListener("scroll", handlePosition);
+    return () => {
+      window.removeEventListener("resize", handlePosition);
+      window.removeEventListener("scroll", handlePosition);
+    };
   }, []);
 
   const handleMouseEnter = () => {
@@ -32,7 +48,7 @@ export default function Tooltip({ children, text }: ITooltip) {
 
   const handleMouseLeave = () => {
     setAnimation("tooltip-shrink");
-    setTimeout(() => setIsHovered(false), 100); // Oculta después de la animación de salida (0.1s)
+    setTimeout(() => setIsHovered(false), 100);
   };
 
   return (
@@ -42,11 +58,12 @@ export default function Tooltip({ children, text }: ITooltip) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div>{children}</div>
+      {children}
       {isHovered && (
         <p
-          className={`z-20 absolute font-bold dark:text-foreground text-background-accent text-sm rounded-full bg-primary px-2 py-1 shadow-foreground shadow-lg w-fit whitespace-nowrap
-            ${position === "right" ? "left-full" : "right-full"} -top-6
+          className={`z-20 absolute dark:text-foreground text-background-accent text-sm rounded-full bg-primary px-2 py-1 w-fit whitespace-nowrap
+            ${horizontalPosition === "right" ? "left-full" : "right-full"} 
+            ${verticalPosition === "top" ? "bottom-full" : "top-full"} 
             ${animation}`}
         >
           {text}
