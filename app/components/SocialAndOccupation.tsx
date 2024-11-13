@@ -18,13 +18,13 @@ export default function SocialAndOccupation() {
   );
 
   const nameTitle: React.ReactElement = (
-    <p className="w-full text-8xl md:text-9xl font-bold text-center font-sf">
+    <p className="w-full text-8xl md:text-9xl font-bold text-center">
       Víctor Jorge Sibaja
     </p>
   );
 
   return (
-    <div className="w-full h-screen flex flex-col md:flex-row items-center justify-center bg-pattern">
+    <div className="w-full snap-center h-screen flex flex-col md:flex-row items-center justify-center bg-pattern">
       {/* Name and occupation container */}
       <div
         className={`flex flex-col h-fit items-center justify-center md:justify-between gap-8 w-9/12 md:w-3/5`}
@@ -33,7 +33,7 @@ export default function SocialAndOccupation() {
         <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-4">
           <Tooltip text="My LinkedIn">
             <Icon
-              link="https://www.linkedin.com/in/victor-jorge-sibaja-156899196"
+              link="https://www.linkedin.com/in/v%C3%ADctor-jorge-sibaja-156899196/"
               iconType={IconType.Linkedin}
             />
           </Tooltip>
@@ -46,7 +46,7 @@ export default function SocialAndOccupation() {
           <Tooltip text="Mail me">
             <Icon
               link="mailto:victorjorgesibaja@gmail.com"
-              iconType={IconType.Mail}
+              iconType={IconType.TailwindCSS}
             />
           </Tooltip>
         </div>

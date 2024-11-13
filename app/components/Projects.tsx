@@ -29,7 +29,7 @@ const ProjectDescription: React.FC = () => {
 
 export default function Projects() {
   return (
-    <div className="w-full h-screen max-h-screen flex flex-col items-center justify-start md:justify-center">
+    <div className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-start md:justify-center">
       <div className="w-11/12 p-4 md:p-8 grid grid-cols-1 grid-rows-[1fr_1fr_1fr_0.5fr] h-full place-items-center gap-8 md:w-4/5 md:grid md:grid-cols-2 md:grid-rows-[2fr_1fr_0.5fr]">
         {image}
         {projectTitle}
