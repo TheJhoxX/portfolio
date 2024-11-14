@@ -5,4 +5,5 @@ export enum IconType {
   TailwindCSS = "TailwindCSS",
   TypeScript = "TypeScript",
   NextJS = "NextJS",
+  Web = "Web",
 }
