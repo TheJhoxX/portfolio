@@ -46,7 +46,7 @@ export default function SocialAndOccupation() {
           <Tooltip text="Mail me">
             <Icon
               link="mailto:victorjorgesibaja@gmail.com"
-              iconType={IconType.Web}
+              iconType={IconType.Mail}
             />
           </Tooltip>
         </div>

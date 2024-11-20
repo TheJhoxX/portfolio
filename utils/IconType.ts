@@ -4,6 +4,7 @@ export enum IconType {
   Mail = "Mail",
   TailwindCSS = "TailwindCSS",
   TypeScript = "TypeScript",
-  NextJS = "NextJS",
-  Web = "Web",
+  NextJS = "Next.js",
+  Web = "Website access",
+  ThreeJS = "Three.js",
 }
