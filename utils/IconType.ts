@@ -7,4 +7,12 @@ export enum IconType {
   NextJS = "Next.js",
   Web = "Website access",
   ThreeJS = "Three.js",
+  GermanFlag = "German",
+  SpanishFlag = "Spanish",
+  UKFlag = "English",
+  NodeJS = "Node.js",
+  DotNet = ".NET",
+  Java = "Java",
+  C = "C",
+  SQLDeveloper = "SQLDeveloper",
 }

@@ -2,6 +2,7 @@ import GlassContainer from "./GlassContainer";
 import Icon from "./Icon";
 import { IconType } from "@/utils/IconType";
 import Tooltip from "@/app/components/Tooltip";
+import { Section } from "@/utils/Section";
 
 export default function SocialAndOccupation() {
   const actualWorkAndSocial: React.ReactElement = (
@@ -24,7 +25,10 @@ export default function SocialAndOccupation() {
   );
 
   return (
-    <div className="w-full snap-center h-screen flex flex-col md:flex-row items-center justify-center bg-pattern">
+    <div
+      id={Section.Home.toString()}
+      className="w-full snap-center h-screen flex flex-col md:flex-row items-center justify-center bg-pattern"
+    >
       {/* Name and occupation container */}
       <div
         className={`flex flex-col h-fit items-center justify-center md:justify-between gap-8 w-9/12 md:w-3/5`}
