@@ -1,8 +1,11 @@
+"use client";
 import GlassContainer from "./GlassContainer";
 import Icon from "./Icon";
 import { IconType } from "@/utils/IconType";
 import Tooltip from "@/app/components/Tooltip";
 import { Section } from "@/utils/Section";
+import ObservableElement from "./ObservableElement";
+import { useState } from "react";
 
 export default function SocialAndOccupation() {
   const actualWorkAndSocial: React.ReactElement = (
@@ -19,9 +22,11 @@ export default function SocialAndOccupation() {
   );
 
   const nameTitle: React.ReactElement = (
-    <p className="w-full text-8xl md:text-9xl font-bold text-center">
-      Víctor Jorge Sibaja
-    </p>
+    <ObservableElement animation="animate-fade-in">
+      <p className={`w-full text-8xl md:text-9xl font-bold text-center`}>
+        Víctor Jorge Sibaja
+      </p>
+    </ObservableElement>
   );
 
   return (
