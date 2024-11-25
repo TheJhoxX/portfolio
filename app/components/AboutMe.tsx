@@ -51,7 +51,7 @@ export default function AboutMe() {
     IconType.C,
   ];
   const techStack: React.ReactElement = (
-    <div className="flex md:col-span-2 h-fit w-full items-center justify-center gap-2 flex-wrap">
+    <div className="flex bg-blue-500 md:col-span-2 h-fit w-full items-center justify-center gap-2 flex-wrap">
       {techList.map((tech, index) => (
         <div
           key={index}

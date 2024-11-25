@@ -42,13 +42,13 @@ export default function NavBar() {
       </a>
       <div className="flex items-center justify-center gap-2">
         <Tooltip text={IconType.GermanFlag.toString()}>
-          <Icon iconType={IconType.GermanFlag} />
+          <Icon width={28} height={28} iconType={IconType.GermanFlag} />
         </Tooltip>
         <Tooltip text={IconType.SpanishFlag.toString()}>
-          <Icon iconType={IconType.SpanishFlag} />
+          <Icon width={28} height={28} iconType={IconType.SpanishFlag} />
         </Tooltip>
         <Tooltip text={IconType.UKFlag.toString()}>
-          <Icon iconType={IconType.UKFlag} />
+          <Icon width={28} height={28} iconType={IconType.UKFlag} />
         </Tooltip>
       </div>
     </div>
