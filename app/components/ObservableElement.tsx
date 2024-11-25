@@ -2,20 +2,20 @@
 import { useEffect, useRef } from "react";
 
 interface IObservableElementProps {
-  onIntersect?: () => void; // Opcional: Ejecutar una función al entrar
-  animation?: string; // Nombre de la clase de animación
-  animateAlways?: boolean; // Controlar si la animación ocurre siempre o solo la primera vez
-  children: React.ReactNode; // Contenido del elemento observable
+  onIntersect?: () => void;
+  animation: string;
+  animateAlways?: boolean;
+  children: React.ReactNode;
 }
 
 export default function ObservableElement({
   onIntersect,
   animation,
-  animateAlways = false, // Por defecto, solo se anima la primera vez
+  animateAlways = false,
   children,
 }: IObservableElementProps) {
   const elementRef = useRef<HTMLDivElement | null>(null);
-  const hasAnimated = useRef(false); // Rastrea si ya se ejecutó la animación
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -26,14 +26,12 @@ export default function ObservableElement({
           if (onIntersect) onIntersect();
 
           if (animation) {
-            // Añadir clase de animación dependiendo de `animateAlways`
             if (animateAlways || !hasAnimated.current) {
               target.classList.add(animation);
-              hasAnimated.current = true; // Marca como animado
+              hasAnimated.current = true;
             }
           }
         } else {
-          // Eliminar clase de animación si `animateAlways` es true
           if (animateAlways && animation) {
             target.classList.remove(animation);
           }
