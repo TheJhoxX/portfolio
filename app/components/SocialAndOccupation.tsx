@@ -1,51 +1,64 @@
-"use client";
-import { useEffect, useRef } from "react";
+import GlassContainer from "./GlassContainer";
+import Icon from "./Icon";
+import { IconType } from "@/utils/IconType";
+import Tooltip from "@/app/components/Tooltip";
+import { Section } from "@/utils/Section";
+import ObservableElement from "./ObservableElement";
 
-interface IObservableElementProps {
-  onIntersect?: () => void;
-  animation: string;
-  animateAlways?: boolean;
-  children: React.ReactNode;
-}
+export default function SocialAndOccupation() {
+  const actualWorkAndSocial: React.ReactElement = (
+    <div className="w-full flex flex-col md:flex-row justify-center items-center md:justify-start h-full gap-2">
+      {/* Actual work */}
+      <GlassContainer>
+        <div className="w-full text-center font-light flex items-center justify-between px-2 gap-2">
+          <p>Software Developer at GMV</p>
+          <p>Software Engineering Student</p>
+        </div>
+      </GlassContainer>
+      {/* Contact */}
+    </div>
+  );
 
-export default function ObservableElement({
-  onIntersect,
-  animation,
-  animateAlways = false,
-  children,
-}: IObservableElementProps) {
-  const elementRef = useRef<HTMLDivElement | null>(null);
-  const hasAnimated = useRef(false);
+  const nameTitle: React.ReactElement = (
+    <ObservableElement animation="animate-fade-in">
+      <p className={`w-full text-8xl md:text-9xl font-bold text-center`}>
+        Víctor Jorge Sibaja
+      </p>
+    </ObservableElement>
+  );
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const target = entry.target as HTMLElement;
-
-        if (entry.isIntersecting) {
-          if (onIntersect) onIntersect();
-
-          if (animateAlways || !hasAnimated.current) {
-            target.classList.add(animation);
-            hasAnimated.current = true; // Marca como animado
-          }
-        } else {
-          if (animateAlways) {
-            target.classList.remove(animation);
-          }
-        }
-      });
-    });
-
-    const currentElement = elementRef.current;
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement) observer.unobserve(currentElement);
-    };
-  }, [onIntersect, animation, animateAlways]);
-
-  return <div ref={elementRef}>{children}</div>;
+  return (
+    <div
+      id={Section.Home.toString()}
+      className="w-full snap-center h-screen flex flex-col md:flex-row items-center justify-center bg-pattern"
+    >
+      {/* Name and occupation container */}
+      <div
+        className={`flex flex-col h-fit items-center justify-center md:justify-between gap-8 w-9/12 md:w-3/5`}
+      >
+        {nameTitle}
+        <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-4">
+          <Tooltip text="My LinkedIn">
+            <Icon
+              link="https://www.linkedin.com/in/v%C3%ADctor-jorge-sibaja-156899196/"
+              iconType={IconType.Linkedin}
+            />
+          </Tooltip>
+          <Tooltip text="My Github">
+            <Icon
+              link="https://github.com/TheJhoxX"
+              iconType={IconType.Github}
+            />
+          </Tooltip>
+          <Tooltip text="Mail me">
+            <Icon
+              link="mailto:victorjorgesibaja@gmail.com"
+              iconType={IconType.Mail}
+            />
+          </Tooltip>
+        </div>
+        {actualWorkAndSocial}
+      </div>
+    </div>
+  );
 }

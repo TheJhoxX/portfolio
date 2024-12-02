@@ -1,0 +1,32 @@
+{
+  "es": {
+    "navbar": {
+      "home": "Home",
+      "projects": "Proyectos",
+      "aboutMe": "Sobre mí",
+      "germanTooltip": "Cambiar a alemán",
+      "spanishTooltip": "Cambiar a español",
+      "englishTooltip": "Cambiar a inglés"
+    }
+  },
+  "en": {
+    "navbar": {
+      "home": "Home",
+      "projects": "Projects",
+      "aboutMe": "About me",
+      "germanTooltip": "Change to german",
+      "spanishTooltip": "Change to spanish",
+      "englishTooltip": "Change to english"
+    }
+  },
+  "de": {
+    "navbar": {
+      "home": "Startseite",
+      "projects": "Projekte",
+      "aboutMe": "Über mich",
+      "germanTooltip": "Zu Deutsch wechseln",
+      "spanishTooltip": "Zu Spanisch wechseln",
+      "englishTooltip": "Zu Englisch wechseln"
+    }
+  }
+}

@@ -1,55 +1,57 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useState } from "react";
+import { Section } from "@/utils/Section";
+import Tooltip from "./Tooltip";
+import Icon from "./Icon";
+import { IconType } from "@/utils/IconType";
+import labels from "@/data/labels.json";
 
-interface IObservableElementProps {
-  onIntersect?: () => void; // Opcional: Ejecutar una función al entrar
-  animation?: string; // Nombre de la clase de animación
-  animateAlways?: boolean; // Controlar si la animación ocurre siempre o solo la primera vez
-  children: React.ReactNode; // Contenido del elemento observable
-}
+const { en, es, de } = labels;
 
-export default function ObservableElement({
-  onIntersect,
-  animation,
-  animateAlways = false, // Por defecto, solo se anima la primera vez
-  children,
-}: IObservableElementProps) {
-  const elementRef = useRef<HTMLDivElement | null>(null);
-  const hasAnimated = useRef(false); // Rastrea si ya se ejecutó la animación
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const target = entry.target as HTMLElement;
-
-        if (entry.isIntersecting) {
-          if (onIntersect) onIntersect();
-
-          if (animation) {
-            // Añadir clase de animación dependiendo de `animateAlways`
-            if (animateAlways || !hasAnimated.current) {
-              target.classList.add(animation);
-              hasAnimated.current = true; // Marca como animado
-            }
-          }
-        } else {
-          // Eliminar clase de animación si `animateAlways` es true
-          if (animateAlways && animation) {
-            target.classList.remove(animation);
-          }
-        }
-      });
-    });
-
-    const currentElement = elementRef.current;
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement) observer.unobserve(currentElement);
-    };
-  }, [onIntersect, animation, animateAlways]);
-
-  return <div ref={elementRef}>{children}</div>;
+export default function NavBar() {
+  const [actualSection, setActualSection] = useState<Section>(Section.Home);
+  const changeSection: (newActualSection: Section) => void = (
+    newActualSection: Section
+  ) => {
+    setActualSection(newActualSection);
+  };
+  return (
+    <div className="fixed bottom-4 text-sm text-nowrap flex items-center justify-center gap-6 left-1/2 transform -translate-x-1/2 z-40 bg-transparent backdrop-blur-lg py-2 px-4 rounded-full shadow-md shadow-foreground">
+      <a
+        href={`#${Section.Home.toString()}`}
+        onClick={() => {
+          changeSection(Section.Home);
+        }}
+      >
+        Home
+      </a>
+      <a
+        href={`#${Section.Projects.toString()}`}
+        onClick={() => {
+          changeSection(Section.Projects);
+        }}
+      >
+        Projects
+      </a>
+      <a
+        href={`#${Section.AboutMe.toString()}`}
+        onClick={() => {
+          changeSection(Section.AboutMe);
+        }}
+      >
+        About me
+      </a>
+      <div className="flex items-center justify-center gap-2">
+        <Tooltip text={de.navbar.germanTooltip}>
+          <Icon width={28} height={28} iconType={IconType.GermanFlag} />
+        </Tooltip>
+        <Tooltip text={es.navbar.spanishTooltip}>
+          <Icon width={28} height={28} iconType={IconType.SpanishFlag} />
+        </Tooltip>
+        <Tooltip text={es.navbar.englishTooltip}>
+          <Icon width={28} height={28} iconType={IconType.UKFlag} />
+        </Tooltip>
+      </div>
+    </div>
+  );
 }
