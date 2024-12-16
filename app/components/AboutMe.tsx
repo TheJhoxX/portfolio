@@ -6,13 +6,13 @@ export default function AboutMe() {
   const personalPhoto: React.ReactElement = (
     <img
       src="/orla-1x1.webp"
-      className="w-auto max-h-96 rounded-xl "
+      className="w-auto sm:max-h-72 md:max-h-96 rounded-xl "
       alt="Project image"
     />
   );
 
   const introductionAboutMe: React.ReactElement = (
-    <p className="text-pretty  w-full rounded-xl">
+    <p className="text-pretty w-full rounded-xl">
       I am a passionate frontend developer, always eager to learn about the
       latest technologies.
     </p>
@@ -51,14 +51,14 @@ export default function AboutMe() {
     IconType.C,
   ];
   const techStack: React.ReactElement = (
-    <div className="flex bg-blue-500 md:col-span-2 h-fit w-full items-center justify-center gap-2 flex-wrap">
+    <div className="grid grid-cols-2 md:grid-rows-1 md:grid-cols- md:col-span-2 h-fit items-center justify-center gap-2 flex-wrap">
       {techList.map((tech, index) => (
         <div
           key={index}
-          className="flex bg-foreground items-center justify-center px-4 py-1 rounded-full"
+          className="flex flex-col bg-foreground items-center justify-center rounded-xl p-4"
         >
-          <Icon width={28} height={28} iconType={tech} inversedColor />
-          <p className=" text-background  text-sm m-2 ">{tech}</p>
+          <Icon width={16} height={16} iconType={tech} inversedColor />
+          <p className=" text-background  text-sm">{tech}</p>
         </div>
       ))}
     </div>
@@ -71,7 +71,7 @@ export default function AboutMe() {
     >
       <div className="w-11/12 lg:w-9/12 max-h-full p-4 grid place-items-center grid-cols-1 grid-rows-[1fr_2fr_1fr] md:grid-cols-2 md:grid-rows-[1fr_0.5fr] rounded-xl gap-4">
         {personalPhoto}
-        <div className="max-h-full w-full backdrop-blur-sm overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
+        <div className="max-h-full md:max-h-96 w-full backdrop-blur-sm overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
           {introductionAboutMe}
           {projectsKindDescription}
           {actualInterest}

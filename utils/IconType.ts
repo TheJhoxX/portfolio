@@ -15,4 +15,8 @@ export enum IconType {
   Java = "Java",
   C = "C",
   SQLDeveloper = "SQLDeveloper",
+  Python = "Python",
+  JavaScript = "JavaScript",
+  CSS = "CSS",
+  HTML = "HTML",
 }

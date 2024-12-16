@@ -49,5 +49,9 @@ export default function ObservableElement({
     };
   }, [onIntersect, animation, animateAlways]);
 
-  return <div ref={elementRef}>{children}</div>;
+  return (
+    <div className="w-full h-full" ref={elementRef}>
+      {children}
+    </div>
+  );
 }

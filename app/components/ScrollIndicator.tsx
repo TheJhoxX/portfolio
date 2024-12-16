@@ -1,5 +1,5 @@
 "use client";
-import { IScrollIndicator } from "@/utils/IScrollIndicator";
+
 import { useState } from "react";
 
 interface ScrollPartProps {
@@ -10,7 +10,6 @@ interface ScrollPartProps {
 
 function ScrollPart({ name, isSelected, onClick }: ScrollPartProps) {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div
       onClick={onClick}
@@ -39,17 +38,25 @@ function ScrollPart({ name, isSelected, onClick }: ScrollPartProps) {
   );
 }
 
-export default function ScrollIndicator({ names }: IScrollIndicator) {
-  const [selectedProject, setSelectedProject] = useState<number | null>(0);
+interface ScrollIndicatorProps {
+  names: string[];
+  selectedProject: number;
+  onProjectSelect: (index: number) => void;
+}
 
+export default function ScrollIndicator({
+  names,
+  selectedProject,
+  onProjectSelect,
+}: ScrollIndicatorProps) {
   return (
     <div className="w-full h-fit p-2 flex items-center justify-center gap-4">
       {names.map((name, index) => (
         <ScrollPart
-          onClick={() => setSelectedProject(index)}
-          isSelected={index === selectedProject}
           key={index}
           name={name}
+          isSelected={index === selectedProject}
+          onClick={() => onProjectSelect(index)}
         />
       ))}
     </div>

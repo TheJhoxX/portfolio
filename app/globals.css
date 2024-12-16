@@ -148,5 +148,66 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes occupationAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+.animate-occupation {
+  opacity: 0;
+  animation: occupationAnimation forwards 0.4s ease-in;
+  animation-delay: 0.4s;
+}
+
+.text-shadow {
+  text-shadow: 5px 5px 15px black;
+}
+
+@keyframes tooltip-hover {
+  0% {
+    width: 0.75rem;
+    height: 0.75rem;
+    padding: 0;
+    opacity: 0;
+  }
+  100% {
+    width: auto;
+    height: auto;
+    padding: 0.75rem;
+    opacity: 1;
+  }
+}
+
+@keyframes tooltip-exit {
+  0% {
+    width: auto;
+    height: auto;
+    padding: 0.75rem;
+    opacity: 1;
+  }
+  100% {
+    width: 0.75rem;
+    height: 0.75rem;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+.tooltip-hover {
+  animation: tooltip-hover 0.3s ease-in-out forwards;
+}
+
+.tooltip-exit {
+  animation: tooltip-exit 0.5s ease-in-out forwards;
 }

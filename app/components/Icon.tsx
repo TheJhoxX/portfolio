@@ -130,56 +130,31 @@ export default function Icon({
         </svg>
       );
     } else if (iconType == IconType.ThreeJS) {
-      return isDarkMode ? (
+      return (
         <svg
-          version="1.2"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 32 32"
           {...size}
-        >
-          <defs>
-            <image
-              width="32"
-              height="32"
-              id="img1"
-              href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAA9JREFUeJxjZAACxsFLAAAK8AAhCVrP+AAAAABJRU5ErkJggg=="
-            />
-            <image
-              width="32"
-              height="32"
-              id="img2"
-              href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IB2cksfwAAAKhQTFRFHBwcHBwcHBwcHBwcAAAAHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc8/X1HBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHR0dHBwcHBwcHBwc////HBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcK8dbXwAAADh0Uk5T//D1swA9mczohUghe9skLh87V8LRuJyKF6gz6xQXTWahqassYyl1D+WMX7BuXgE2OApcRWl4nuEFkLngAAABjElEQVR4nK3TX0+CUBgG8PdV0gM5RGRYSmrLtTXLvv9HaOvOWc1aMc0LU4YgasgfO+gEFLObuOT57TnnvAcQ/njwXwCifxykkT72EUC8NcHpr3vgLR+QR7Qwm0BrIKKGTH5pkqCH1fwEkNFzTsbizAbJJUt3IVnTXUCyyIxBniwll8ngQJoVUc/qfgSARzKxiTx3mXFtPoK6vioaruAERRsgCpZ1jmqO9qRZq66bhWA5o6JugYxDgIZ6+UVcLV/QzRVdDuqghksQz6G9JTVFT6EAvgCRe5t8exe8VdXNItcDuHlFdoGYVbAT2ySI5b65AuUT7uCJteg8Gs4zxAHrpOgQOe8a2pA3gLo27ACp0nWbb5lTgb4v4yDKw++BtkO61S7Ts9fmZ1EeAs6zaa/+LX5wVyMhykPAekvaGzDMX8TyEEhGCx8DhjwZJm5zvYmSqoHE9fmCCgcB1+yIxFDe9/II0HYo5gbKXh4Bic4Z9/vjgE7iUB4D3G1XSOYxwFa1cTKPAXL/cCD/h5/3BxstlSEolKcsAAAAAElFTkSuQmCC"
-            />
-          </defs>
-          <style></style>
-          <use id="Background" href="#img1" x="0" y="0" />
-          <use id="Capa 1" href="#img2" x="0" y="0" />
-        </svg>
-      ) : (
-        <svg
-          version="1.2"
+          fill="none"
+          strokeLinecap="square"
+          strokeMiterlimit="10"
+          version="1.1"
+          viewBox="0 0 226.77 226.77"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 32 32"
-          width="32"
-          height="32"
         >
-          <defs>
-            <image
-              width="32"
-              height="32"
-              id="img1"
-              href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAA9JREFUeJxjZAACxsFLAAAK8AAhCVrP+AAAAABJRU5ErkJggg=="
-            />
-            <image
-              width="32"
-              height="32"
-              id="img2"
-              href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IB2cksfwAAAKhQTFRFHBwcHBwcHBwcHBwcAAAAHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwc8/X1HBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHR0dHBwcHBwcHBwc////HBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcK8dbXwAAADh0Uk5T//D1swA9mczohUghe9skLh87V8LRuJyKF6gz6xQXTWahqassYyl1D+WMX7BuXgE2OApcRWl4nuEFkLngAAABjElEQVR4nK3TX0+CUBgG8PdV0gM5RGRYSmrLtTXLvv9HaOvOWc1aMc0LU4YgasgfO+gEFLObuOT57TnnvAcQ/njwXwCifxykkT72EUC8NcHpr3vgLR+QR7Qwm0BrIKKGTH5pkqCH1fwEkNFzTsbizAbJJUt3IVnTXUCyyIxBniwll8ngQJoVUc/qfgSARzKxiTx3mXFtPoK6vioaruAERRsgCpZ1jmqO9qRZq66bhWA5o6JugYxDgIZ6+UVcLV/QzRVdDuqghksQz6G9JTVFT6EAvgCRe5t8exe8VdXNItcDuHlFdoGYVbAT2ySI5b65AuUT7uCJteg8Gs4zxAHrpOgQOe8a2pA3gLo27ACp0nWbb5lTgb4v4yDKw++BtkO61S7Ts9fmZ1EeAs6zaa/+LX5wVyMhykPAekvaGzDMX8TyEEhGCx8DhjwZJm5zvYmSqoHE9fmCCgcB1+yIxFDe9/II0HYo5gbKXh4Bic4Z9/vjgE7iUB4D3G1XSOYxwFa1cTKPAXL/cCD/h5/3BxstlSEolKcsAAAAAElFTkSuQmCC"
-            />
-          </defs>
-          <style></style>
-          <use id="Background" href="#img1" x="0" y="0" />
-          <use id="Capa 1" href="#img2" x="0" y="0" />
+          <g
+            transform="translate(8.964 4.2527)"
+            fillRule="evenodd"
+            stroke={color}
+            strokeLinecap="butt"
+            strokeLinejoin="round"
+            strokeWidth="4"
+          >
+            <path d="m63.02 200.61-43.213-174.94 173.23 49.874z" />
+            <path d="m106.39 50.612 21.591 87.496-86.567-24.945z" />
+            <path d="m84.91 125.03-10.724-43.465 43.008 12.346z" />
+            <path d="m63.458 38.153 10.724 43.465-43.008-12.346z" />
+            <path d="m149.47 62.93 10.724 43.465-43.008-12.346z" />
+            <path d="m84.915 125.06 10.724 43.465-43.008-12.346z" />
+          </g>
         </svg>
       );
     } else if (iconType == IconType.GermanFlag) {
@@ -304,6 +279,88 @@ export default function Icon({
           <path
             fill="#0074BD"
             d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z"
+          ></path>
+        </svg>
+      );
+    } else if (iconType == IconType.Python) {
+      return (
+        <svg {...size} viewBox="0 0 128 128">
+          <linearGradient
+            id="python-original-a"
+            gradientUnits="userSpaceOnUse"
+            x1="70.252"
+            y1="1237.476"
+            x2="170.659"
+            y2="1151.089"
+            gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"
+          >
+            <stop offset="0" stopColor="#5A9FD4"></stop>
+            <stop offset="1" stopColor="#306998"></stop>
+          </linearGradient>
+          <linearGradient
+            id="python-original-b"
+            gradientUnits="userSpaceOnUse"
+            x1="209.474"
+            y1="1098.811"
+            x2="173.62"
+            y2="1149.537"
+            gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"
+          >
+            <stop offset="0" stopColor="#FFD43B"></stop>
+            <stop offset="1" stopColor="#FFE873"></stop>
+          </linearGradient>
+          <path
+            fill="url(#python-original-a)"
+            d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z"
+            transform="translate(0 10.26)"
+          ></path>
+          <path
+            fill="url(#python-original-b)"
+            d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z"
+            transform="translate(0 10.26)"
+          ></path>
+          <radialGradient
+            id="python-original-c"
+            cx="1825.678"
+            cy="444.45"
+            r="26.743"
+            gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0" stopColor="#B8B8B8" stopOpacity=".498"></stop>
+            <stop offset="1" stopColor="#7F7F7F" stopOpacity="0"></stop>
+          </radialGradient>
+          <path
+            opacity=".444"
+            fill="url(#python-original-c)"
+            d="M97.309 119.597c0 3.543-14.816 6.416-33.091 6.416-18.276 0-33.092-2.873-33.092-6.416 0-3.544 14.815-6.417 33.092-6.417 18.275 0 33.091 2.872 33.091 6.417z"
+          ></path>
+        </svg>
+      );
+    } else if (iconType == IconType.JavaScript) {
+      return (
+        <svg {...size} viewBox="0 0 128 128">
+          <path
+            fill="#F0DB4F"
+            d="M2 1v125h125V1H2zm66.119 106.513c-1.845 3.749-5.367 6.212-9.448 7.401-6.271 1.44-12.269.619-16.731-2.059-2.986-1.832-5.318-4.652-6.901-7.901l9.52-5.83c.083.035.333.487.667 1.071 1.214 2.034 2.261 3.474 4.319 4.485 2.022.69 6.461 1.131 8.175-2.427 1.047-1.81.714-7.628.714-14.065C58.433 78.073 58.48 68 58.48 58h11.709c0 11 .06 21.418 0 32.152.025 6.58.596 12.446-2.07 17.361zm48.574-3.308c-4.07 13.922-26.762 14.374-35.83 5.176-1.916-2.165-3.117-3.296-4.26-5.795 4.819-2.772 4.819-2.772 9.508-5.485 2.547 3.915 4.902 6.068 9.139 6.949 5.748.702 11.531-1.273 10.234-7.378-1.333-4.986-11.77-6.199-18.873-11.531-7.211-4.843-8.901-16.611-2.975-23.335 1.975-2.487 5.343-4.343 8.877-5.235l3.688-.477c7.081-.143 11.507 1.727 14.756 5.355.904.916 1.642 1.904 3.022 4.045-3.772 2.404-3.76 2.381-9.163 5.879-1.154-2.486-3.069-4.046-5.093-4.724-3.142-.952-7.104.083-7.926 3.403-.285 1.023-.226 1.975.227 3.665 1.273 2.903 5.545 4.165 9.377 5.926 11.031 4.474 14.756 9.271 15.672 14.981.882 4.916-.213 8.105-.38 8.581z"
+          ></path>
+        </svg>
+      );
+    } else if (iconType == IconType.CSS) {
+      return (
+        <svg {...size} viewBox="0 0 128 128">
+          <path
+            fill="#1572B6"
+            d="M8.76 1l10.055 112.883 45.118 12.58 45.244-12.626L119.24 1H8.76zm89.591 25.862l-3.347 37.605.01.203-.014.467v-.004l-2.378 26.294-.262 2.336L64 101.607v.001l-.022.019-28.311-7.888L33.75 72h13.883l.985 11.054 15.386 4.17-.004.008v-.002l15.443-4.229L81.075 65H48.792l-.277-3.043-.631-7.129L47.553 51h34.749l1.264-14H30.64l-.277-3.041-.63-7.131L29.401 23h69.281l-.331 3.862z"
+          ></path>
+        </svg>
+      );
+    } else if (iconType == IconType.HTML) {
+      return (
+        <svg {...size} viewBox="0 0 128 128">
+          <path
+            fill="#E44D26"
+            d="M9.032 2l10.005 112.093 44.896 12.401 45.02-12.387L118.968 2H9.032zm89.126 26.539l-.627 7.172L97.255 39H44.59l1.257 14h50.156l-.336 3.471-3.233 36.119-.238 2.27L64 102.609v.002l-.034.018-28.177-7.423L33.876 74h13.815l.979 10.919L63.957 89H64v-.546l15.355-3.875L80.959 67H33.261l-3.383-38.117L29.549 25h68.939l-.33 3.539z"
           ></path>
         </svg>
       );

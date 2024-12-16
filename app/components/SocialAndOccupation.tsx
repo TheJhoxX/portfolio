@@ -9,13 +9,14 @@ export default function SocialAndOccupation() {
   const actualWorkAndSocial: React.ReactElement = (
     <div className="w-full flex flex-col md:flex-row justify-center items-center md:justify-start h-full gap-2">
       {/* Actual work */}
-      <GlassContainer>
-        <div className="w-full text-center font-light flex items-center justify-between px-2 gap-2">
-          <p>Software Developer at GMV</p>
-          <p>Software Engineering Student</p>
-        </div>
-      </GlassContainer>
-      {/* Contact */}
+      <ObservableElement animation="animate-occupation">
+        <GlassContainer>
+          <div className="w-full rounded-xl text-center font-light flex items-center justify-between px-2 gap-2">
+            <p>Software Developer at GMV</p>
+            <p>Software Engineering Student</p>
+          </div>
+        </GlassContainer>
+      </ObservableElement>
     </div>
   );
 
@@ -39,22 +40,28 @@ export default function SocialAndOccupation() {
         {nameTitle}
         <div className="flex items-center justify-center w-9/12 md:w-1/5 gap-4">
           <Tooltip text="My LinkedIn">
-            <Icon
-              link="https://www.linkedin.com/in/v%C3%ADctor-jorge-sibaja-156899196/"
-              iconType={IconType.Linkedin}
-            />
+            <ObservableElement animation="animate-fade-in">
+              <Icon
+                link="https://www.linkedin.com/in/v%C3%ADctor-jorge-sibaja-156899196/"
+                iconType={IconType.Linkedin}
+              />
+            </ObservableElement>
           </Tooltip>
           <Tooltip text="My Github">
-            <Icon
-              link="https://github.com/TheJhoxX"
-              iconType={IconType.Github}
-            />
+            <ObservableElement animation="animate-fade-in">
+              <Icon
+                link="https://github.com/TheJhoxX"
+                iconType={IconType.Github}
+              />
+            </ObservableElement>
           </Tooltip>
           <Tooltip text="Mail me">
-            <Icon
-              link="mailto:victorjorgesibaja@gmail.com"
-              iconType={IconType.Mail}
-            />
+            <ObservableElement animation="animate-fade-in">
+              <Icon
+                link="mailto:victorjorgesibaja@gmail.com"
+                iconType={IconType.Mail}
+              />
+            </ObservableElement>
           </Tooltip>
         </div>
         {actualWorkAndSocial}

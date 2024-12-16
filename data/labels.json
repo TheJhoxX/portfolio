@@ -7,6 +7,9 @@
       "germanTooltip": "Cambiar a alemán",
       "spanishTooltip": "Cambiar a español",
       "englishTooltip": "Cambiar a inglés"
+    },
+    "utils": {
+      "directWebAccess": "Acceso directo a la web"
     }
   },
   "en": {
@@ -17,6 +20,9 @@
       "germanTooltip": "Change to german",
       "spanishTooltip": "Change to spanish",
       "englishTooltip": "Change to english"
+    },
+    "utils": {
+      "directWebAccess": "Direct web access"
     }
   },
   "de": {
@@ -27,6 +33,9 @@
       "germanTooltip": "Zu Deutsch wechseln",
       "spanishTooltip": "Zu Spanisch wechseln",
       "englishTooltip": "Zu Englisch wechseln"
+    },
+    "utils": {
+      "directWebAccess": "Enlace directo a la web"
     }
   }
 }

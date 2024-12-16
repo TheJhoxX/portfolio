@@ -11,6 +11,9 @@ const config: Config = {
   darkMode: "media",
   theme: {
     extend: {
+      boxShadow: {
+        blurred: "10px 10px 25px var(--foreground);",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

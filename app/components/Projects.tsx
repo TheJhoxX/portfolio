@@ -1,75 +1,89 @@
-import { IconType } from "@/utils/IconType";
+"use client";
+
 import Icon from "./Icon";
 import ScrollIndicator from "./ScrollIndicator";
 import Tooltip from "./Tooltip";
 import { Section } from "@/utils/Section";
+import { projectList } from "@/utils/projectList";
+import { useState } from "react";
+import { IProject } from "@/utils/IProject";
+import labels from "@/data/labels.json";
+import { IconType } from "@/utils/IconType";
 
-const image: React.ReactElement = (
-  <div className="w-full rounded-xl h-full max-h-full flex items-center justify-center">
-    <img
-      src="/imagen-sugus.png"
-      className="w-full h-auto  rounded-xl md:w-full md:h-auto"
-      alt="Project image"
-    />
-  </div>
-);
+const { en, es, de } = labels;
 
-const directWebAccess: React.ReactElement = (
-  <div className="w-full md:col-span-2 flex items-center justify-center gap-4">
-    <Tooltip text={IconType.Web.toString()}>
-      <Icon iconType={IconType.Web} link="https://sugusuva.es" />
-    </Tooltip>
-  </div>
-);
-
-const titleAndTech: React.ReactElement = (
-  <div className="w-full flex flex-col items-center justify-between gap-8">
-    <p className="text-pretty text-center w-full  font-semibold text-4xl md:text-5xl overflow-ellipsis line-clamp-3 md:line-clamp-4">
-      SUGUSUVa WebSite
-    </p>
-    <div className="w-full flex items-center justify-center gap-4">
-      <Tooltip text={IconType.NextJS.toString()}>
-        <Icon iconType={IconType.NextJS} />
-      </Tooltip>
-      <Tooltip text={IconType.TypeScript.toString()}>
-        <Icon iconType={IconType.TypeScript} />
-      </Tooltip>
-      <Tooltip text={IconType.TailwindCSS.toString()}>
-        <Icon iconType={IconType.TailwindCSS} />
-      </Tooltip>
-    </div>
-  </div>
-);
-
-const ProjectDescription: React.FC = () => {
+const projectTitle = (title: string) => {
   return (
-    <div className="w-full h-full max-h-full overflow-y-auto p-4 md:col-span-2 rounded-xl">
-      <p className="w-full max-h-full h-full break-words text-pretty bg-scroll-gradient bg-clip-text">
-        Web para la asociación de la Universidad de Valladolid: SUGUS (Somos Un
-        Grupo Universitario de ciberSeguridad). En la versión para dispositivos
-        móviles se decidió no emplear 3d para no saturar la interfaz y tener una
-        mejor experiencia de usuario.
+    <div className="relative w-full h-full hover:backdrop-blur-0 transition-all duration-300 flex items-end p-2">
+      <p className="font-bold text-shadow text-background dark:text-foreground text-5xl text-pretty">
+        {title}
       </p>
     </div>
   );
 };
 
+const projectDescription = (description: string) => {
+  return (
+    <div className="w-full h-44 overflow-y-auto p-2">
+      <p className="text-pretty">{description}</p>
+    </div>
+  );
+};
+
+const techStack = (technologies: IconType[]) => {
+  return (
+    <div className="w-full bg-background-accent rounded-xl flex items-center p-2 gap-3">
+      {technologies.map((tech, index) => (
+        <Tooltip key={index} text={tech.toString()}>
+          <Icon iconType={tech} />
+        </Tooltip>
+      ))}
+    </div>
+  );
+};
+
+export function Project({ project }: { project: IProject }) {
+  return (
+    <div className="flex rounded-xl flex-col w-full lg:w-3/4 max-h-full justify-start items-center p-2">
+      {/* Contenedor con relación 16:9 */}
+      <div className="relative w-full h-96 rounded-xl overflow-hidden flex justify-center bg-background-accent items-center p-2">
+        <img
+          src={project.image}
+          alt={project.label}
+          className="max-w-full max-h-full object-contain rounded-xl"
+        />
+        {/* Título sobre la imagen */}
+        <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 via-black/30 to-transparent text-background-accent dark:text-foreground p-4">
+          <p className="font-bold text-5xl">{project.title.es}</p>
+        </div>
+      </div>
+
+      {projectDescription(project.description.es)}
+
+      {/* Tecnologías */}
+      {techStack(project.technologies)}
+    </div>
+  );
+}
+
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(0);
+
+  const project = projectList[selectedProject];
+
   return (
     <div
       id={Section.Projects.toString()}
-      className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-start md:justify-center"
+      className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center md:justify-center p-4"
     >
-      <div className="w-11/12 lg:w-9/12 p-4 md:p-8 grid grid-cols-1 grid-rows-[1fr_1fr_1fr_0.5fr_0.5fr] h-full place-items-center gap-8 md:w-4/5 md:grid md:grid-cols-2 md:grid-rows-[2fr_1fr_0.5fr_0.5fr]">
-        {image}
-        {titleAndTech}
-        <ProjectDescription />
-        {directWebAccess}
-        <div className="w-full flex items-center md:col-span-2">
-          <ScrollIndicator
-            names={["SUGUSUVa", "Todo-app", "Nested", "Caralibro", "UVash"]}
-          />
-        </div>
+      <Project project={project} />
+      {/* ScrollIndicator dinámico */}
+      <div className="w-full flex items-center md:col-span-2">
+        <ScrollIndicator
+          names={projectList.map((project) => project.label)}
+          selectedProject={selectedProject}
+          onProjectSelect={setSelectedProject}
+        />
       </div>
     </div>
   );
