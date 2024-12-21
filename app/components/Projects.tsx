@@ -13,11 +13,37 @@ import ObservableElement from "./ObservableElement";
 
 const { en, es, de } = labels;
 
-const projectTitle = (title: string) => {
+export enum AnimationDirection {
+  LEFT = "animate-project-fade-in-left",
+  RIGHT = "animate-project-fade-in-right",
+  NONE = "animate-project-fade-in-z",
+}
+
+const calculateAnimationDirection = (
+  currentIndex: number,
+  previousIndex: number,
+  totalProjects: number
+): AnimationDirection => {
+  if (currentIndex === previousIndex) return AnimationDirection.NONE;
+
+  // Caso en el que pasamos del último al primero
+  if (currentIndex === 0 && previousIndex === totalProjects - 1) {
+    return AnimationDirection.RIGHT;
+  }
+
+  return currentIndex > previousIndex
+    ? AnimationDirection.RIGHT
+    : AnimationDirection.LEFT;
+};
+
+const projectTitle = (
+  title: string,
+  animationDirection: AnimationDirection
+) => {
   return (
     <ObservableElement
       key={title}
-      animation="animate-project-title-bottom"
+      animation={animationDirection.toString()}
       className="absolute z-20 bottom-0 w-full rounded-b-xl bg-gradient-to-t from-black/60 via-black/30 to-transparent text-background-accent dark:text-foreground p-4"
     >
       <p className="font-bold text-5xl">{title}</p>
@@ -36,7 +62,7 @@ const techStack = (technologies: IconType[], label: string) => {
         {technologies.map((tech, index) => (
           <ObservableElement
             className="h-full p-2 flex items-center justify-center"
-            animationDelay={index * 100 + 200}
+            animationDelay={index * 100 + 400}
             key={`project-${label}-${tech.toString()}`}
             animation="animate-tech-right"
           >
@@ -50,20 +76,32 @@ const techStack = (technologies: IconType[], label: string) => {
   );
 };
 
-export function Project({ project }: { project: IProject }) {
+export function Project({
+  project,
+  animationDirection,
+}: {
+  project: IProject;
+  animationDirection: AnimationDirection;
+}) {
+  console.log(animationDirection);
+
   return (
     <div className="flex rounded-xl bg-background-accent flex-col w-full lg:w-3/4 max-h-full justify-start items-center p-2">
       <div className="relative w-full h-half-screen md:h-three-quarter-screen rounded-xl flex justify-center items-center p-2">
-        <img
-          src={project.image}
-          alt={project.label}
-          className="max-w-full max-h-full object-contain rounded-xl"
-        />
-        {projectTitle(project.title.es)}
+        <ObservableElement
+          key={`img-${project.label}`}
+          animation={animationDirection.toString()}
+          className="w-full h-full flex items-center justify-center"
+        >
+          <img
+            src={project.image}
+            alt={project.label}
+            className="max-w-full max-h-full object-contain rounded-xl"
+          />
+        </ObservableElement>
+        {projectTitle(project.title.es, animationDirection)}
         {techStack(project.technologies, project.label)}
       </div>
-
-      {/* Tecnologías */}
     </div>
   );
 }
@@ -71,22 +109,34 @@ export function Project({ project }: { project: IProject }) {
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(0);
   const [previousSelectedProject, setPreviousSelectedProject] = useState(0);
+  const [animationDirection, setAnimationDirection] =
+    useState<AnimationDirection>(AnimationDirection.NONE);
+
+  const handleProjectChange = (newProjectIndex: number) => {
+    const direction = calculateAnimationDirection(
+      newProjectIndex,
+      selectedProject,
+      projectList.length
+    );
+    setAnimationDirection(direction);
+    setPreviousSelectedProject(selectedProject);
+    setSelectedProject(newProjectIndex);
+  };
 
   const project = projectList[selectedProject];
-  const previousProject = projectList[previousSelectedProject];
 
   return (
     <div
       id={Section.Projects.toString()}
       className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center p-4"
     >
-      <Project project={project} />
+      <Project project={project} animationDirection={animationDirection} />
       {/* ScrollIndicator dinámico */}
       <div className="w-full flex items-center md:col-span-2">
         <ScrollIndicator
           names={projectList.map((project) => project.label)}
           selectedProject={selectedProject}
-          onProjectSelect={setSelectedProject}
+          onProjectSelect={handleProjectChange} // Usamos el setter personalizado
         />
       </div>
     </div>

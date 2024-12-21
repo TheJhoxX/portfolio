@@ -196,14 +196,62 @@ body {
   }
 }
 
+@keyframes animateFadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes animateFadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes animateFadeInZ {
+  0% {
+    opacity: 0;
+    transform: translateZ(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0px);
+  }
+}
+
+.animate-project-fade-in-z {
+  opacity: 0;
+  animation: animateFadeInZ forwards 0.4s ease-in;
+}
+
+.animate-project-fade-in-right {
+  opacity: 0;
+  animation: animateFadeInRight forwards 0.4s ease-in;
+}
+
+.animate-project-fade-in-left {
+  opacity: 0;
+  animation: animateFadeInLeft forwards 0.4s ease-in;
+}
+
 .animate-project-title-bottom {
   opacity: 0;
-  animation: techRightEnter forwards 0.2s ease-in;
+  animation: projectTitleBottomEnter forwards 0.4s ease-in;
 }
 
 .animate-tech-right {
   opacity: 0;
-  animation: techRightEnter forwards 0.2s ease-in;
+  animation: techRightEnter forwards 0.4s ease-in;
 }
 
 /* Clase genérica para parametrizar animation-delay */
