@@ -1,18 +1,22 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 
 interface IObservableElementProps {
   onIntersect?: () => void;
   animation: string;
+  animationDelay?: number;
   animateAlways?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
+  className?: string;
 }
 
 export default function ObservableElement({
   onIntersect,
   animation,
+  animationDelay = 0,
   animateAlways = false,
   children,
+  className = "w-full h-full",
 }: IObservableElementProps) {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const hasAnimated = useRef(false);
@@ -20,20 +24,33 @@ export default function ObservableElement({
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const target = entry.target as HTMLElement;
-
         if (entry.isIntersecting) {
           if (onIntersect) onIntersect();
 
           if (animation) {
-            if (animateAlways || !hasAnimated.current) {
-              target.classList.add(animation);
+            const childNodes = elementRef.current?.children;
+            if (childNodes) {
+              Array.from(childNodes).forEach((child) => {
+                if (animateAlways || !hasAnimated.current) {
+                  child.classList.add(animation);
+                  child.setAttribute(
+                    "style",
+                    `animation-delay: ${animationDelay}ms;`
+                  ); // Aplica delay dinámico
+                }
+              });
               hasAnimated.current = true;
             }
           }
         } else {
           if (animateAlways && animation) {
-            target.classList.remove(animation);
+            const childNodes = elementRef.current?.children;
+            if (childNodes) {
+              Array.from(childNodes).forEach((child) => {
+                child.classList.remove(animation);
+                child.removeAttribute("style"); // Elimina delay dinámico
+              });
+            }
           }
         }
       });
@@ -47,10 +64,10 @@ export default function ObservableElement({
     return () => {
       if (currentElement) observer.unobserve(currentElement);
     };
-  }, [onIntersect, animation, animateAlways]);
+  }, [onIntersect, animation, animateAlways, animationDelay]);
 
   return (
-    <div className="w-full h-full" ref={elementRef}>
+    <div className={className} ref={elementRef}>
       {children}
     </div>
   );

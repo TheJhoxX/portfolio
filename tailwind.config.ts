@@ -46,6 +46,7 @@ const config: Config = {
         half: "50%",
         "quarter-screen": "25vh",
         "half-screen": "50vh",
+        "three-quarter-screen": "75vh",
         "1/2": "50%",
         "1/5": "25%",
       },

@@ -174,40 +174,39 @@ body {
   text-shadow: 5px 5px 15px black;
 }
 
-@keyframes tooltip-hover {
+@keyframes techRightEnter {
   0% {
-    width: 0.75rem;
-    height: 0.75rem;
-    padding: 0;
     opacity: 0;
+    transform: translateX(20px);
   }
   100% {
-    width: auto;
-    height: auto;
-    padding: 0.75rem;
     opacity: 1;
+    transform: translateX(0px);
   }
 }
 
-@keyframes tooltip-exit {
+@keyframes projectTitleBottomEnter {
   0% {
-    width: auto;
-    height: auto;
-    padding: 0.75rem;
-    opacity: 1;
+    opacity: 0;
+    transform: translateY(20px);
   }
   100% {
-    width: 0.75rem;
-    height: 0.75rem;
-    padding: 0;
-    opacity: 0;
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
-.tooltip-hover {
-  animation: tooltip-hover 0.3s ease-in-out forwards;
+.animate-project-title-bottom {
+  opacity: 0;
+  animation: techRightEnter forwards 0.2s ease-in;
 }
 
-.tooltip-exit {
-  animation: tooltip-exit 0.5s ease-in-out forwards;
+.animate-tech-right {
+  opacity: 0;
+  animation: techRightEnter forwards 0.2s ease-in;
+}
+
+/* Clase genérica para parametrizar animation-delay */
+.animation-delay {
+  animation-delay: var(--animation-delay, 0ms); /* Default: 0ms */
 }
