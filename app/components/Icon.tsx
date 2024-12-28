@@ -364,6 +364,44 @@ export default function Icon({
           ></path>
         </svg>
       );
+    } else if (iconType == IconType.Info) {
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...size}>
+          <circle
+            cx="24"
+            cy="24"
+            r="20"
+            fill={color}
+            stroke={color}
+            strokeWidth="4"
+          />
+          <circle
+            cx="24"
+            cy="14"
+            r="2.5"
+            fill={isDarkMode ? "#1c1c1c" : "#f3f5f5"}
+            stroke="transparent"
+          />
+          <line
+            x1="24"
+            y1="20"
+            x2="24"
+            y2="34"
+            stroke={isDarkMode ? "#1c1c1c" : "#f3f5f5"}
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <line
+            x1="21"
+            y1="34"
+            x2="27"
+            y2="34"
+            stroke={isDarkMode ? "#1c1c1c" : "#f3f5f5"}
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
     } else {
       return <p className="bg-red-500">Error</p>;
     }

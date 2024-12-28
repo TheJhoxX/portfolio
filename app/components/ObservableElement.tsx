@@ -1,11 +1,13 @@
 "use client";
+
 import { useEffect, useRef, ReactNode } from "react";
 
 interface IObservableElementProps {
   onIntersect?: () => void;
-  animation: string;
+  animation?: string;
   animationDelay?: number;
   animateAlways?: boolean;
+  threshold?: number; // Nuevo: umbral de visibilidad configurable
   children: ReactNode;
   className?: string;
 }
@@ -15,6 +17,7 @@ export default function ObservableElement({
   animation,
   animationDelay = 0,
   animateAlways = false,
+  threshold = 0.5, // Por defecto, el 50% visible
   children,
   className = "w-full h-full",
 }: IObservableElementProps) {
@@ -22,39 +25,35 @@ export default function ObservableElement({
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (onIntersect) onIntersect();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const { isIntersecting, intersectionRatio } = entry;
 
-          if (animation) {
-            const childNodes = elementRef.current?.children;
-            if (childNodes) {
-              Array.from(childNodes).forEach((child) => {
-                if (animateAlways || !hasAnimated.current) {
-                  child.classList.add(animation);
-                  child.setAttribute(
-                    "style",
-                    `animation-delay: ${animationDelay}ms;`
-                  ); // Aplica delay dinámico
-                }
-              });
+          // Llamar a onIntersect solo si el ratio supera el threshold
+          if (isIntersecting && intersectionRatio >= threshold && onIntersect) {
+            onIntersect();
+          }
+
+          // Aplicar animación si está intersectando
+          if (isIntersecting && animation) {
+            if (animateAlways || !hasAnimated.current) {
+              entry.target.classList.add(animation);
+              (
+                entry.target as HTMLElement
+              ).style.animationDelay = `${animationDelay}ms`;
               hasAnimated.current = true;
             }
+          } else if (!isIntersecting && animateAlways && animation) {
+            entry.target.classList.remove(animation);
+            (entry.target as HTMLElement).style.animationDelay = "";
           }
-        } else {
-          if (animateAlways && animation) {
-            const childNodes = elementRef.current?.children;
-            if (childNodes) {
-              Array.from(childNodes).forEach((child) => {
-                child.classList.remove(animation);
-                child.removeAttribute("style"); // Elimina delay dinámico
-              });
-            }
-          }
-        }
-      });
-    });
+        });
+      },
+      {
+        threshold: [threshold], // Umbral configurable
+      }
+    );
 
     const currentElement = elementRef.current;
     if (currentElement) {
@@ -64,7 +63,7 @@ export default function ObservableElement({
     return () => {
       if (currentElement) observer.unobserve(currentElement);
     };
-  }, [onIntersect, animation, animateAlways, animationDelay]);
+  }, [onIntersect, animation, animateAlways, animationDelay, threshold]);
 
   return (
     <div className={className} ref={elementRef}>

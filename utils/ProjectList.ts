@@ -3,7 +3,7 @@ import { IProject } from "./IProject";
 
 export const projectList: IProject[] = [
   {
-    label: "sugus-web",
+    label: "SugusUVa-web",
     title: {
       en: "SugusUVa Website",
       es: "Web SugusUVa",
@@ -24,7 +24,7 @@ export const projectList: IProject[] = [
     link: "https://sugusuva.es/",
   },
   {
-    label: "todo-app",
+    label: "Todo-app",
     title: {
       en: "Todo App",
       es: "Todo App",
@@ -46,7 +46,7 @@ export const projectList: IProject[] = [
     repository: "https://github.com/TheJhoxX/todo-app",
   },
   {
-    label: "caralibro",
+    label: "Caralibro",
     title: {
       en: "Caralibro: The Social Network",
       es: "Caralibro: la red social",
@@ -62,7 +62,7 @@ export const projectList: IProject[] = [
     repository: "https://github.com/TheJhoxX/CARALIBRO---La-Red-Social",
   },
   {
-    label: "nested",
+    label: "Nested",
     title: {
       en: "Nested",
       es: "Nested",
@@ -83,7 +83,7 @@ export const projectList: IProject[] = [
     repository: "https://github.com/TheJhoxX/Nested",
   },
   {
-    label: "torres",
+    label: "Hanoi Towers",
     title: {
       en: "Towers Problem",
       es: "Problema de las torres",
@@ -95,7 +95,7 @@ export const projectList: IProject[] = [
       de: "Lösung eines Problems, das im Kurs Algorithmus-Analyse und -Design vorgeschlagen wurde. Obwohl das Ziel darin bestand, es mit dynamischer Programmierung zu lösen, fanden mein Partner und ich eine ähnliche, aber weniger effiziente Lösung.",
     },
     technologies: [IconType.Java],
-    image: "logo-java.png",
+    image: "hanoi-towers.webp",
     repository: "https://github.com/TheJhoxX/p2ADA",
   },
   {
@@ -111,11 +111,11 @@ export const projectList: IProject[] = [
       de: "Entwicklung einer Shell mit interaktiven und nicht interaktiven Modi im Rahmen des Kurses Betriebssystemstruktur.",
     },
     technologies: [IconType.C],
-    image: "imagenBash.png",
+    image: "imagen-bash.webp",
     repository: "https://github.com/TheJhoxX/UVash",
   },
   {
-    label: "quicksort",
+    label: "QuickSort",
     title: {
       en: "Improvement of the Classic Algorithm: Quicksort",
       es: "Mejora del algoritmo clásico: Quicksort",

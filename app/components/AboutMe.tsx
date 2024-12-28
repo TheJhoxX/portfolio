@@ -6,7 +6,7 @@ export default function AboutMe() {
   const personalPhoto: React.ReactElement = (
     <img
       src="/orla-1x1.webp"
-      className="w-auto sm:max-h-72 md:max-h-96 rounded-xl "
+      className="md:h-full w-2/5 object-cover rounded-xl bg-background-accent"
       alt="Project image"
     />
   );
@@ -39,7 +39,7 @@ export default function AboutMe() {
       further expand my skill set.
     </p>
   );
-
+  /*
   const techList: IconType[] = [
     IconType.NextJS,
     IconType.TypeScript,
@@ -51,7 +51,7 @@ export default function AboutMe() {
     IconType.C,
   ];
   const techStack: React.ReactElement = (
-    <div className="grid grid-cols-2 md:grid-rows-1 md:grid-cols- md:col-span-2 h-fit items-center justify-center gap-2 flex-wrap">
+    <div className="flex flex-col md:flex-row h-fit items-center justify-center gap-2">
       {techList.map((tech, index) => (
         <div
           key={index}
@@ -63,20 +63,20 @@ export default function AboutMe() {
       ))}
     </div>
   );
-
+*/
   return (
     <div
       id={Section.AboutMe.toString()}
-      className="w-full bg-pattern snap-center h-screen max-h-screen flex flex-col items-center justify-start md:justify-center"
+      className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center"
     >
-      <div className="w-11/12 lg:w-9/12 max-h-full p-4 grid place-items-center grid-cols-1 grid-rows-[1fr_2fr_1fr] md:grid-cols-2 md:grid-rows-[1fr_0.5fr] rounded-xl gap-4">
+      <div className="w-11/12 lg:w-9/12 h-full md:h-half-screen p-4 rounded-xl gap-4 flex flex-col md:flex-row items-center justify-center">
         {personalPhoto}
-        <div className="max-h-full md:max-h-96 w-full backdrop-blur-sm overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
+        <div className="max-h-full w-full backdrop-blur-sm overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
           {introductionAboutMe}
           {projectsKindDescription}
           {actualInterest}
         </div>
-        {techStack}
+        {/*techStack*/}
       </div>
     </div>
   );

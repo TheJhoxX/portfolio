@@ -25,7 +25,7 @@ export default function Tooltip({ children, text }: ITooltip) {
       {children}
       {isHovered && (
         <p
-          className={`absolute z-20 text-background-accent text-sm rounded-full bg-primary px-2 py-1 w-fit whitespace-nowrap
+          className={`absolute z-20 text-background dark:text-foreground text-sm rounded-full bg-primary px-2 py-1 w-fit whitespace-nowrap
             left-full bottom-full translate-x-2 -translate-y-2
             ${animation}`}
         >

@@ -55,16 +55,16 @@ const techStack = (technologies: IconType[], label: string) => {
   return (
     <ObservableElement
       key={`tech-bar-${label}`}
-      animation="animate-tech-right"
-      className="absolute w-full z-10 h-full flex items-start md:items-center justify-center md:justify-end "
+      animation="animate-tech-bottom"
+      className="flex w-full items-center justify-center"
     >
-      <div className="bg-foreground rounded-full gap-2 flex md:flex-col items-center justify-center">
+      <div className="bg-foreground px-2 py-1 rounded-full gap-2 flex items-center justify-center">
         {technologies.map((tech, index) => (
           <ObservableElement
-            className="h-full p-2 flex items-center justify-center"
+            className="h-full px-1 py-1 flex items-center justify-center"
             animationDelay={index * 100 + 400}
             key={`project-${label}-${tech.toString()}`}
-            animation="animate-tech-right"
+            animation="animate-tech-bottom"
           >
             <Tooltip text={tech.toString()}>
               <Icon inversedColor iconType={tech} />
@@ -83,8 +83,6 @@ export function Project({
   project: IProject;
   animationDirection: AnimationDirection;
 }) {
-  console.log(animationDirection);
-
   return (
     <div className="flex rounded-xl bg-background-accent flex-col w-full lg:w-3/4 max-h-full justify-start items-center p-2">
       <div className="relative w-full h-half-screen md:h-three-quarter-screen rounded-xl flex justify-center items-center p-2">
@@ -100,7 +98,6 @@ export function Project({
           />
         </ObservableElement>
         {projectTitle(project.title.es, animationDirection)}
-        {techStack(project.technologies, project.label)}
       </div>
     </div>
   );
@@ -108,7 +105,6 @@ export function Project({
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(0);
-  const [previousSelectedProject, setPreviousSelectedProject] = useState(0);
   const [animationDirection, setAnimationDirection] =
     useState<AnimationDirection>(AnimationDirection.NONE);
 
@@ -119,7 +115,6 @@ export default function Projects() {
       projectList.length
     );
     setAnimationDirection(direction);
-    setPreviousSelectedProject(selectedProject);
     setSelectedProject(newProjectIndex);
   };
 
@@ -128,8 +123,10 @@ export default function Projects() {
   return (
     <div
       id={Section.Projects.toString()}
-      className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center p-4"
+      className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center gap-4 p-4"
     >
+      {techStack(project.technologies, project.label)}
+
       <Project project={project} animationDirection={animationDirection} />
       {/* ScrollIndicator dinámico */}
       <div className="w-full flex items-center md:col-span-2">

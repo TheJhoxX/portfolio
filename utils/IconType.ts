@@ -19,4 +19,5 @@ export enum IconType {
   JavaScript = "JavaScript",
   CSS = "CSS",
   HTML = "HTML",
+  Info = "Info",
 }

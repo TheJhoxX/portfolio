@@ -31,7 +31,7 @@ export default function SocialAndOccupation() {
   return (
     <div
       id={Section.Home.toString()}
-      className="w-full snap-center h-screen flex flex-col md:flex-row items-center justify-center bg-pattern"
+      className="w-full snap-center h-screen flex flex-col md:flex-row items-center justify-center"
     >
       {/* Name and occupation container */}
       <div

@@ -229,6 +229,17 @@ body {
   }
 }
 
+@keyframes techBottomEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .animate-project-fade-in-z {
   opacity: 0;
   animation: animateFadeInZ forwards 0.4s ease-in;
@@ -249,9 +260,9 @@ body {
   animation: projectTitleBottomEnter forwards 0.4s ease-in;
 }
 
-.animate-tech-right {
+.animate-tech-bottom {
   opacity: 0;
-  animation: techRightEnter forwards 0.4s ease-in;
+  animation: techBottomEnter forwards 0.4s ease-in;
 }
 
 /* Clase genérica para parametrizar animation-delay */

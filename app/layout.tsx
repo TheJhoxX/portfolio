@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import NavBar from "./components/NavBar";
 
 export const metadata: Metadata = {
   title: "TheJhoxX portfolio",
@@ -64,7 +63,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${sfFont.variable} antialiased relative`}>
         {children}
-        <NavBar />
       </body>
     </html>
   );
