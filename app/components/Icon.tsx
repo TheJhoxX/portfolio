@@ -10,6 +10,8 @@ export default function Icon({
   inversedColor,
   width = 32,
   height = 32,
+  cursorPointer = false,
+  onClick,
 }: IIconParamters) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const size = { width: `${width}px`, height: `${height}px` };
@@ -402,6 +404,30 @@ export default function Icon({
           />
         </svg>
       );
+    } else if (iconType == IconType.Close) {
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...size}>
+          <circle cx="24" cy="24" r="20" fill={color} stroke="none" />
+          <line
+            x1="16"
+            y1="16"
+            x2="32"
+            y2="32"
+            stroke={isDarkMode ? "#1c1c1c" : "#f3f5f5"}
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <line
+            x1="32"
+            y1="16"
+            x2="16"
+            y2="32"
+            stroke={isDarkMode ? "#1c1c1c" : "#f3f5f5"}
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
     } else {
       return <p className="bg-red-500">Error</p>;
     }
@@ -419,11 +445,23 @@ export default function Icon({
 
   if (link) {
     return (
-      <Link href={link} target="_blank" rel="noopener noreferrer">
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${cursorPointer ? "cursor-pointer" : ""}`}
+      >
         {generateIcon()}
       </Link>
     );
   } else {
-    return generateIcon();
+    return (
+      <div
+        className={`${cursorPointer ? "cursor-pointer" : ""}`}
+        onClick={onClick}
+      >
+        {generateIcon()}
+      </div>
+    );
   }
 }

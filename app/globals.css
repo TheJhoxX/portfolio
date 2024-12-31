@@ -265,7 +265,37 @@ body {
   animation: techBottomEnter forwards 0.4s ease-in;
 }
 
-/* Clase genérica para parametrizar animation-delay */
+/* Generic class to parametrize animation-delay */
 .animation-delay {
-  animation-delay: var(--animation-delay, 0ms); /* Default: 0ms */
+  animation-delay: var(--animation-delay, 0ms);
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+.animate-scale-out {
+  animation: scale-out 0.2s ease-in forwards;
 }

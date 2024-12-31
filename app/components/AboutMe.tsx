@@ -1,6 +1,4 @@
 import { Section } from "@/utils/Section";
-import Icon from "./Icon";
-import { IconType } from "@/utils/IconType";
 
 export default function AboutMe() {
   const personalPhoto: React.ReactElement = (
@@ -33,37 +31,10 @@ export default function AboutMe() {
       Currently, I am particularly focused on web development, especially
       frontend, using technologies like Next.js, TailwindCSS, and Flutter. I am
       also open to learning more about mobile development to further expand my
-      skill set. Currently, I am particularly focused on web development,
-      especially frontend, using technologies like Next.js, TailwindCSS, and
-      Flutter. I am also open to learning more about mobile development to
-      further expand my skill set.
+      skill set.
     </p>
   );
-  /*
-  const techList: IconType[] = [
-    IconType.NextJS,
-    IconType.TypeScript,
-    IconType.TailwindCSS,
-    IconType.SQLDeveloper,
-    IconType.NodeJS,
-    IconType.Java,
-    IconType.DotNet,
-    IconType.C,
-  ];
-  const techStack: React.ReactElement = (
-    <div className="flex flex-col md:flex-row h-fit items-center justify-center gap-2">
-      {techList.map((tech, index) => (
-        <div
-          key={index}
-          className="flex flex-col bg-foreground items-center justify-center rounded-xl p-4"
-        >
-          <Icon width={16} height={16} iconType={tech} inversedColor />
-          <p className=" text-background  text-sm">{tech}</p>
-        </div>
-      ))}
-    </div>
-  );
-*/
+
   return (
     <div
       id={Section.AboutMe.toString()}

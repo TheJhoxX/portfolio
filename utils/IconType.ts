@@ -20,4 +20,5 @@ export enum IconType {
   CSS = "CSS",
   HTML = "HTML",
   Info = "Info",
+  Close = "Close",
 }

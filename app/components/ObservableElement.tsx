@@ -7,7 +7,7 @@ interface IObservableElementProps {
   animation?: string;
   animationDelay?: number;
   animateAlways?: boolean;
-  threshold?: number; // Nuevo: umbral de visibilidad configurable
+  threshold?: number;
   children: ReactNode;
   className?: string;
 }
@@ -30,12 +30,10 @@ export default function ObservableElement({
         entries.forEach((entry) => {
           const { isIntersecting, intersectionRatio } = entry;
 
-          // Llamar a onIntersect solo si el ratio supera el threshold
           if (isIntersecting && intersectionRatio >= threshold && onIntersect) {
             onIntersect();
           }
 
-          // Aplicar animación si está intersectando
           if (isIntersecting && animation) {
             if (animateAlways || !hasAnimated.current) {
               entry.target.classList.add(animation);
@@ -51,7 +49,7 @@ export default function ObservableElement({
         });
       },
       {
-        threshold: [threshold], // Umbral configurable
+        threshold: [threshold],
       }
     );
 
