@@ -1,7 +1,50 @@
+import { Language } from "@/utils/Language";
 import { IconType } from "./IconType";
 import { IProject } from "./IProject";
 
-export const projectList: IProject[] = [
+const labels = {
+  es: {
+    navbar: {
+      home: "Home",
+      projects: "Proyectos",
+      aboutMe: "Sobre mí",
+      germanTooltip: "Cambiar a alemán",
+      spanishTooltip: "Cambiar a español",
+      englishTooltip: "Cambiar a inglés",
+    },
+    utils: {
+      directWebAccess: "Acceso directo a la web",
+    },
+  },
+  en: {
+    navbar: {
+      home: "Home",
+      projects: "Projects",
+      aboutMe: "About me",
+      germanTooltip: "Change to German",
+      spanishTooltip: "Change to Spanish",
+      englishTooltip: "Change to English",
+    },
+    utils: {
+      directWebAccess: "Direct web access",
+    },
+  },
+  de: {
+    navbar: {
+      home: "Startseite",
+      projects: "Projekte",
+      aboutMe: "Über mich",
+      germanTooltip: "Zu Deutsch wechseln",
+      spanishTooltip: "Zu Spanisch wechseln",
+      englishTooltip: "Zu Englisch wechseln",
+    },
+    utils: {
+      directWebAccess: "Enlace directo a la web",
+    },
+  },
+};
+
+const projects: IProject[] = [
   {
     label: "SugusUVa-web",
     title: {
@@ -131,3 +174,7 @@ export const projectList: IProject[] = [
     repository: "https://github.com/TheJhoxX/p1ADA",
   },
 ];
+
+export const getLabels = (language: Language) => labels[language];
+
+export const getProjects = (language: Language): IProject[] => projects;

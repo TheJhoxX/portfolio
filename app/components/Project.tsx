@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import ObservableElement from "./ObservableElement"; // Componente original
+import ObservableElement from "./ObservableElement";
 import { IconType } from "@/utils/IconType";
 import Tooltip from "./Tooltip";
 import Icon from "./Icon";
 import { IProject } from "@/utils/IProject";
+import { useGlobalContext } from "@/context/GlobalProvider";
 
 export enum AnimationDirection {
   LEFT = "animate-project-fade-in-left",
@@ -60,15 +61,21 @@ export function Project({
   project: IProject;
   animationDirection: AnimationDirection;
 }) {
+  const { language } = useGlobalContext();
   const [showingDescription, setShowingDescription] = useState(false);
   const [iconAnimation, setIconAnimation] =
     useState<string>("animate-scale-in");
 
+  const [descriptionAnimation, setDescriptionAnimation] =
+    useState<string>("animate-scale-in");
+
   const handleIconClick = () => {
     setIconAnimation("animate-scale-out");
+    setDescriptionAnimation("animate-desc-out");
     setTimeout(() => {
       setShowingDescription(!showingDescription);
       setIconAnimation("animate-scale-in");
+      setDescriptionAnimation("animate-desc-in");
     }, 200);
   };
 
@@ -87,7 +94,6 @@ export function Project({
           />
         </ObservableElement>
 
-        {/* Ícono superpuesto */}
         <div className="absolute top-2 right-2 z-50 flex items-center justify-center pointer-events-auto">
           <div
             className={`flex cursor-pointer items-center justify-center ${iconAnimation}`}
@@ -101,20 +107,17 @@ export function Project({
         </div>
 
         {showingDescription && (
-          <div className="absolute bg-black bg-opacity-40 inset-0 z-20 flex items-center justify-center p-2 rounded-xl  backdrop-blur-xl pointer-events-auto">
+          <div
+            className={`absolute bg-black bg-opacity-40 inset-0 z-20 flex items-center justify-center p-2 rounded-xl backdrop-blur-xl pointer-events-auto ${descriptionAnimation}`}
+          >
             <p className="w-3/4 max-h-full text-background dark:text-foreground overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 text-pretty">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
+              {project.description[language]}
             </p>
           </div>
         )}
 
         {!showingDescription &&
-          projectTitle(project.title.es, animationDirection)}
+          projectTitle(project.title[language], animationDirection)}
       </div>
     </div>
   );

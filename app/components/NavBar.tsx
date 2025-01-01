@@ -4,10 +4,10 @@ import { Section } from "@/utils/Section";
 import Tooltip from "./Tooltip";
 import Icon from "./Icon";
 import { IconType } from "@/utils/IconType";
-import labels from "@/data/labels.json";
+import { useGlobalContext } from "@/context/GlobalProvider";
+import { getLabels } from "@/utils/Localization";
 import { useEffect, useRef, useState } from "react";
-
-const { en } = labels;
+import { Language } from "@/utils/Language";
 
 interface NavBarProps {
   activeSection: Section;
@@ -21,16 +21,17 @@ export default function NavBar({ activeSection }: NavBarProps) {
   });
   const navRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  const { language, setLanguage } = useGlobalContext();
+  const labels = getLabels(language);
+
+  const updateMarkerStyle = () => {
     if (navRef.current) {
-      // Encuentra el enlace activo
       const activeLink = navRef.current.querySelector(
         `a[data-section="${activeSection}"]`
       ) as HTMLElement;
 
       if (activeLink) {
         const { offsetLeft, offsetWidth, offsetHeight } = activeLink;
-        // Actualiza el estilo del marcador
         setMarkerStyle({
           left: offsetLeft,
           width: offsetWidth,
@@ -38,7 +39,11 @@ export default function NavBar({ activeSection }: NavBarProps) {
         });
       }
     }
-  }, [activeSection]);
+  };
+
+  useEffect(() => {
+    updateMarkerStyle();
+  }, [activeSection, language]);
 
   return (
     <div className="absolute left-1/2 bottom-4 transform -translate-x-1/2 flex items-end justify-center z-50">
@@ -55,44 +60,62 @@ export default function NavBar({ activeSection }: NavBarProps) {
           href={`#${Section.Home.toString()}`}
           data-section={Section.Home}
           className={`relative rounded-full px-2 py-1 transition-all duration-300 ${
-            activeSection == Section.Home
+            activeSection === Section.Home
               ? "text-background"
               : "text-foreground"
           }`}
         >
-          Home
+          {labels.navbar.home}
         </a>
         <a
           href={`#${Section.Projects.toString()}`}
           data-section={Section.Projects}
           className={`relative rounded-full px-2 py-1 transition-all duration-300 ${
-            activeSection == Section.Projects
+            activeSection === Section.Projects
               ? "text-background"
               : "text-foreground"
           }`}
         >
-          Projects
+          {labels.navbar.projects}
         </a>
         <a
           href={`#${Section.AboutMe.toString()}`}
           data-section={Section.AboutMe}
           className={`relative rounded-full px-2 py-1 transition-all duration-300 ${
-            activeSection == Section.AboutMe
+            activeSection === Section.AboutMe
               ? "text-background"
               : "text-foreground"
           }`}
         >
-          About Me
+          {labels.navbar.aboutMe}
         </a>
         <div className="flex items-center justify-center gap-2">
-          <Tooltip text={en.navbar.germanTooltip}>
-            <Icon width={28} height={28} iconType={IconType.GermanFlag} />
+          <Tooltip text={labels.navbar.germanTooltip}>
+            <Icon
+              cursorPointer
+              width={28}
+              height={28}
+              iconType={IconType.GermanFlag}
+              onClick={() => setLanguage(Language.German)}
+            />
           </Tooltip>
-          <Tooltip text={en.navbar.spanishTooltip}>
-            <Icon width={28} height={28} iconType={IconType.SpanishFlag} />
+          <Tooltip text={labels.navbar.spanishTooltip}>
+            <Icon
+              cursorPointer
+              width={28}
+              height={28}
+              iconType={IconType.SpanishFlag}
+              onClick={() => setLanguage(Language.Spanish)}
+            />
           </Tooltip>
-          <Tooltip text={en.navbar.englishTooltip}>
-            <Icon width={28} height={28} iconType={IconType.UKFlag} />
+          <Tooltip text={labels.navbar.englishTooltip}>
+            <Icon
+              cursorPointer
+              width={28}
+              height={28}
+              iconType={IconType.UKFlag}
+              onClick={() => setLanguage(Language.English)}
+            />
           </Tooltip>
         </div>
       </div>

@@ -2,15 +2,15 @@
 
 import ScrollIndicator from "./ScrollIndicator";
 import { Section } from "@/utils/Section";
-import { projectList } from "@/utils/ProjectList";
+import { getProjects } from "@/utils/Localization";
+import { useGlobalContext } from "@/context/GlobalProvider";
 import { useState } from "react";
-import {
-  Project,
-  techStack,
-  AnimationDirection,
-} from "@/app/components/Project";
+import { Project, techStack, AnimationDirection } from "./Project";
 
 export default function Projects() {
+  const { language } = useGlobalContext();
+  const projects = getProjects(language);
+
   const [selectedProject, setSelectedProject] = useState(0);
   const [animationDirection, setAnimationDirection] =
     useState<AnimationDirection>(AnimationDirection.NONE);
@@ -24,7 +24,7 @@ export default function Projects() {
     setSelectedProject(newProjectIndex);
   };
 
-  const project = projectList[selectedProject];
+  const project = projects[selectedProject];
 
   return (
     <div
@@ -34,10 +34,9 @@ export default function Projects() {
       {techStack(project.technologies, project.label)}
 
       <Project project={project} animationDirection={animationDirection} />
-      {/* ScrollIndicator dinámico */}
       <div className="w-full flex items-center md:col-span-2">
         <ScrollIndicator
-          names={projectList.map((project) => project.label)}
+          names={projects.map((project) => project.label)}
           selectedProject={selectedProject}
           onProjectSelect={handleProjectChange}
         />
