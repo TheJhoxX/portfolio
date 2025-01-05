@@ -8,13 +8,14 @@ export default function Icon({
   iconType,
   link,
   inversedColor,
-  width = 32,
-  height = 32,
+  width = "32px",
+  height = "32px",
   cursorPointer = false,
   onClick,
+  className = "",
 }: IIconParamters) {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const size = { width: `${width}px`, height: `${height}px` };
+  const size = { width: `${width}`, height: `${height}` };
   const color: string = isDarkMode
     ? inversedColor
       ? "#1c1c1c"
@@ -428,6 +429,18 @@ export default function Icon({
           />
         </svg>
       );
+    } else if (iconType == IconType.Menu) {
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          {...size}
+          fill={isDarkMode ? "#1c1c1c" : "#f3f5f5"}
+          className="bg-foreground rounded-full p-1"
+        >
+          <path d="M157.37-228.28q-19.15 0-32.33-13.18-13.17-13.17-13.17-32.32t13.17-32.33q13.18-13.17 32.33-13.17h645.26q19.15 0 32.33 13.17 13.17 13.18 13.17 32.33t-13.17 32.32q-13.18 13.18-32.33 13.18H157.37Zm0-206.22q-19.15 0-32.33-13.17-13.17-13.18-13.17-32.33t13.17-32.33q13.18-13.17 32.33-13.17h645.26q19.15 0 32.33 13.17 13.17 13.18 13.17 32.33t-13.17 32.33q-13.18 13.17-32.33 13.17H157.37Zm0-206.22q-19.15 0-32.33-13.17-13.17-13.18-13.17-32.33t13.17-32.32q13.18-13.18 32.33-13.18h645.26q19.15 0 32.33 13.18 13.17 13.17 13.17 32.32t-13.17 32.33q-13.18 13.17-32.33 13.17H157.37Z" />
+        </svg>
+      );
     } else {
       return <p className="bg-red-500">Error</p>;
     }
@@ -449,7 +462,7 @@ export default function Icon({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${cursorPointer ? "cursor-pointer" : ""}`}
+        className={`${cursorPointer ? "cursor-pointer" : ""} ${className}`}
       >
         {generateIcon()}
       </Link>
@@ -457,7 +470,7 @@ export default function Icon({
   } else {
     return (
       <div
-        className={`${cursorPointer ? "cursor-pointer" : ""}`}
+        className={`${cursorPointer ? "cursor-pointer" : ""} ${className}`}
         onClick={onClick}
       >
         {generateIcon()}

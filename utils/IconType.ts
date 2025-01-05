@@ -21,4 +21,5 @@ export enum IconType {
   HTML = "HTML",
   Info = "Info",
   Close = "Close",
+  Menu = "Menu",
 }

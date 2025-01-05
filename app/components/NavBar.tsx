@@ -45,6 +45,8 @@ export default function NavBar({ activeSection }: NavBarProps) {
     updateMarkerStyle();
   }, [activeSection, language]);
 
+  const isSelected = (lang: Language) => lang === language;
+
   return (
     <div className="absolute left-1/2 bottom-4 transform -translate-x-1/2 flex items-end justify-center z-50">
       <div
@@ -92,27 +94,42 @@ export default function NavBar({ activeSection }: NavBarProps) {
         <div className="flex items-center justify-center gap-2">
           <Tooltip text={labels.navbar.germanTooltip}>
             <Icon
+              className={
+                isSelected(Language.German)
+                  ? "shadow-md rounded-full shadow-primary"
+                  : ""
+              }
               cursorPointer
-              width={28}
-              height={28}
+              width="2rem"
+              height="2rem"
               iconType={IconType.GermanFlag}
               onClick={() => setLanguage(Language.German)}
             />
           </Tooltip>
           <Tooltip text={labels.navbar.spanishTooltip}>
             <Icon
+              className={
+                isSelected(Language.Spanish)
+                  ? "shadow-md rounded-full shadow-primary"
+                  : ""
+              }
               cursorPointer
-              width={28}
-              height={28}
+              width="2rem"
+              height="2rem"
               iconType={IconType.SpanishFlag}
               onClick={() => setLanguage(Language.Spanish)}
             />
           </Tooltip>
           <Tooltip text={labels.navbar.englishTooltip}>
             <Icon
+              className={
+                isSelected(Language.English)
+                  ? "shadow-md rounded-full shadow-primary"
+                  : ""
+              }
               cursorPointer
-              width={28}
-              height={28}
+              width="2rem"
+              height="2rem"
               iconType={IconType.UKFlag}
               onClick={() => setLanguage(Language.English)}
             />

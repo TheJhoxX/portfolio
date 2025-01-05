@@ -175,6 +175,36 @@ const projects: IProject[] = [
   },
 ];
 
+export const aboutMeDescriptions = {
+  es: {
+    introduction:
+      "Soy un desarrollador frontend apasionado, siempre ansioso por aprender sobre las últimas tecnologías.",
+    projectsKind:
+      "En los últimos años, he trabajado en una variedad de proyectos académicos, personales y profesionales. Estos han ido desde desarrollos de alto nivel utilizando frameworks modernos como Next.js hasta programación de bajo nivel con C y C++. Esta experiencia diversa no solo ha ampliado mi conocimiento, sino que también me ha ayudado a descubrir qué tecnologías y campos disfruto más.",
+    interests:
+      "Actualmente, estoy particularmente enfocado en el desarrollo web, especialmente frontend, utilizando tecnologías como Next.js, TailwindCSS y Flutter. También estoy abierto a aprender más sobre desarrollo móvil para ampliar aún más mis habilidades.",
+  },
+  en: {
+    introduction:
+      "I am a passionate frontend developer, always eager to learn about the latest technologies.",
+    projectsKind:
+      "Over the past few years, I have worked on a variety of academic, personal, and professional projects. These have ranged from high-level development using modern frameworks like Next.js to low-level programming with C and C++. This diverse experience has not only broadened my knowledge but also helped me discover which technologies and fields I enjoy the most.",
+    interests:
+      "Currently, I am particularly focused on web development, especially frontend, using technologies like Next.js, TailwindCSS, and Flutter. I am also open to learning more about mobile development to further expand my skill set.",
+  },
+  de: {
+    introduction:
+      "Ich bin ein leidenschaftlicher Frontend-Entwickler und immer bestrebt, die neuesten Technologien zu erlernen.",
+    projectsKind:
+      "In den letzten Jahren habe ich an einer Vielzahl von akademischen, persönlichen und beruflichen Projekten gearbeitet. Diese reichten von High-Level-Entwicklungen mit modernen Frameworks wie Next.js bis hin zur Low-Level-Programmierung mit C und C++. Diese vielfältigen Erfahrungen haben nicht nur mein Wissen erweitert, sondern mir auch geholfen, herauszufinden, welche Technologien und Bereiche mir am meisten Spaß machen.",
+    interests:
+      "Derzeit konzentriere ich mich besonders auf die Webentwicklung, insbesondere im Frontend-Bereich, mit Technologien wie Next.js, TailwindCSS und Flutter. Ich bin auch offen dafür, mehr über die mobile Entwicklung zu lernen, um meine Fähigkeiten weiter auszubauen.",
+  },
+};
+
+export const getAboutMeDescriptions = (language: Language) =>
+  aboutMeDescriptions[language];
+
 export const getLabels = (language: Language) => labels[language];
 
 export const getProjects = (language: Language): IProject[] => projects;

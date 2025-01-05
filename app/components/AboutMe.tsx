@@ -1,53 +1,49 @@
+"use client";
+
 import { Section } from "@/utils/Section";
+import { getAboutMeDescriptions } from "@/utils/Localization";
+import { useGlobalContext } from "@/context/GlobalProvider";
+import TechsScroll from "./TechsScroll";
 
 export default function AboutMe() {
+  const { language } = useGlobalContext();
+
+  const aboutMe = getAboutMeDescriptions(language);
+
   const personalPhoto: React.ReactElement = (
     <img
       src="/orla-1x1.webp"
-      className="md:h-full w-2/5 object-cover rounded-xl bg-background-accent"
-      alt="Project image"
+      className="md:h-full w-2/5 object-cover rounded-xl bg-background-accent z-40"
+      alt="Personal photo"
     />
   );
 
   const introductionAboutMe: React.ReactElement = (
-    <p className="text-pretty w-full rounded-xl">
-      I am a passionate frontend developer, always eager to learn about the
-      latest technologies.
-    </p>
+    <p className="text-pretty w-full rounded-xl">{aboutMe.interests}</p>
   );
 
   const projectsKindDescription: React.ReactElement = (
-    <p className="text-pretty w-full rounded-xl">
-      Over the past few years, I have worked on a variety of academic, personal,
-      and professional projects. These have ranged from high-level development
-      using modern frameworks like Next.js to low-level programming with C and
-      C++. This diverse experience has not only broadened my knowledge but also
-      helped me discover which technologies and fields I enjoy the most.
-    </p>
+    <p className="text-pretty w-full rounded-xl">{aboutMe.projectsKind}</p>
   );
 
   const actualInterest: React.ReactElement = (
-    <p className="text-pretty w-full rounded-xl">
-      Currently, I am particularly focused on web development, especially
-      frontend, using technologies like Next.js, TailwindCSS, and Flutter. I am
-      also open to learning more about mobile development to further expand my
-      skill set.
-    </p>
+    <p className="text-pretty w-full rounded-xl">{aboutMe.interests}</p>
   );
 
   return (
     <div
       id={Section.AboutMe.toString()}
-      className="w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center"
+      className=" relative w-full snap-center h-screen max-h-screen flex flex-col items-center justify-center"
     >
+      <TechsScroll />
+
       <div className="w-11/12 lg:w-9/12 h-full md:h-half-screen p-4 rounded-xl gap-4 flex flex-col md:flex-row items-center justify-center">
         {personalPhoto}
-        <div className="max-h-full w-full backdrop-blur-sm overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
+        <div className="max-h-full w-full overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
           {introductionAboutMe}
           {projectsKindDescription}
           {actualInterest}
         </div>
-        {/*techStack*/}
       </div>
     </div>
   );
