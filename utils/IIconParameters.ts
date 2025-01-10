@@ -7,6 +7,5 @@ export interface IIconParamters {
   height?: string;
   inversedColor?: boolean;
   onClick?: () => void;
-  cursorPointer?: boolean;
   className?: string;
 }

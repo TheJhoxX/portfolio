@@ -14,6 +14,12 @@ const config: Config = {
       boxShadow: {
         blurred: "10px 10px 25px var(--foreground);",
       },
+      maskType: {
+        maskImage: {
+          "gradient-mask":
+            "linear-gradient(to right, transparent 0, black 128px, black calc(100% - 200px), transparent 100%)",
+        },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -73,15 +79,38 @@ const config: Config = {
   plugins: [
     plugin(function ({ addUtilities }) {
       addUtilities({
-        ".mask-svg": {
-          mask: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><g fill="white"><path d="M16.219 15.762a1.129 1.129 0 00-1.076 1.399l24.394 98.742a1.129 1.129 0 001.879.544l73.386-70.59a1.129 1.129 0 00-.47-1.899L16.55 15.806a1.129 1.129 0 00-.331-.044zm1.584 2.754l94.024 27.07-70.566 67.877-23.458-94.947z"></path><path d="M65.137 29.84a1.129 1.129 0 00-.807.315L27.654 65.46a1.129 1.129 0 00.471 1.898L76.984 81.44a1.129 1.129 0 001.409-1.355L66.21 30.698a1.129 1.129 0 00-1.073-.858zm-.651 3.3L75.734 78.73l-45.104-13L64.486 33.14z"></path></g></svg>')`,
-          maskRepeat: "no-repeat",
-          maskSize: "contain",
-          maskPosition: "center",
-          WebkitMask: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><g fill="white"><path d="M16.219 15.762a1.129 1.129 0 00-1.076 1.399l24.394 98.742a1.129 1.129 0 001.879.544l73.386-70.59a1.129 1.129 0 00-.47-1.899L16.55 15.806a1.129 1.129 0 00-.331-.044zm1.584 2.754l94.024 27.07-70.566 67.877-23.458-94.947z"></path><path d="M65.137 29.84a1.129 1.129 0 00-.807.315L27.654 65.46a1.129 1.129 0 00.471 1.898L76.984 81.44a1.129 1.129 0 001.409-1.355L66.21 30.698a1.129 1.129 0 00-1.073-.858zm-.651 3.3L75.734 78.73l-45.104-13L64.486 33.14z"></path></g></svg>')`,
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskSize: "contain",
-          WebkitMaskPosition: "center",
+        ".mask-horizontal-gradient": {
+          maskImage:
+            "linear-gradient(to right, transparent 0, black 128px, black calc(100% - 200px), transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0, black 128px, black calc(100% - 200px), transparent 100%)",
+        },
+        ".mask-vertical-gradient": {
+          maskImage:
+            "linear-gradient(to top, transparent 0, black 128px, black calc(100% - 200px), transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, transparent 0, black 128px, black calc(100% - 200px), transparent 100%)",
+        },
+        ".mask-top-gradient": {
+          maskImage: "linear-gradient(to bottom, transparent, black 128px)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent, black 128px)",
+        },
+
+        ".mask-bottom-gradient": {
+          maskImage: "linear-gradient(to top, transparent, black 128px)",
+          WebkitMaskImage: "linear-gradient(to top, transparent, black 128px)",
+        },
+
+        ".mask-left-gradient": {
+          maskImage: "linear-gradient(to right, transparent, black 128px)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 128px)",
+        },
+
+        ".mask-right-gradient": {
+          maskImage: "linear-gradient(to left, transparent, black 128px)",
+          WebkitMaskImage: "linear-gradient(to left, transparent, black 128px)",
         },
       });
     }),

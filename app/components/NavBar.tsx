@@ -94,12 +94,12 @@ export default function NavBar({ activeSection }: NavBarProps) {
         <div className="flex items-center justify-center gap-2">
           <Tooltip text={labels.navbar.germanTooltip}>
             <Icon
-              className={
-                isSelected(Language.German)
-                  ? "shadow-md rounded-full shadow-primary"
-                  : ""
-              }
-              cursorPointer
+              className={`
+                ${
+                  isSelected(Language.German)
+                    ? "cursor-pointer shadow-md rounded-full shadow-primary"
+                    : ""
+                } cursor-pointer`}
               width="2rem"
               height="2rem"
               iconType={IconType.GermanFlag}
@@ -108,12 +108,12 @@ export default function NavBar({ activeSection }: NavBarProps) {
           </Tooltip>
           <Tooltip text={labels.navbar.spanishTooltip}>
             <Icon
-              className={
-                isSelected(Language.Spanish)
-                  ? "shadow-md rounded-full shadow-primary"
-                  : ""
-              }
-              cursorPointer
+              className={`
+                ${
+                  isSelected(Language.Spanish)
+                    ? "cursor-pointer shadow-md rounded-full shadow-primary"
+                    : ""
+                } cursor-pointer`}
               width="2rem"
               height="2rem"
               iconType={IconType.SpanishFlag}
@@ -122,12 +122,12 @@ export default function NavBar({ activeSection }: NavBarProps) {
           </Tooltip>
           <Tooltip text={labels.navbar.englishTooltip}>
             <Icon
-              className={
-                isSelected(Language.English)
-                  ? "shadow-md rounded-full shadow-primary"
-                  : ""
-              }
-              cursorPointer
+              className={`
+                ${
+                  isSelected(Language.English)
+                    ? "cursor-pointer shadow-md rounded-full shadow-primary"
+                    : ""
+                } cursor-pointer`}
               width="2rem"
               height="2rem"
               iconType={IconType.UKFlag}

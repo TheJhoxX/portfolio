@@ -17,7 +17,7 @@ export default function TechsScroll() {
   ];
 
   return (
-    <div className="-z-10 w-11/12 absolute top-1/2 -translate-y-1/2 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+    <div className="-z-10 w-11/12 absolute top-1/2 -translate-y-1/2 inline-flex flex-nowrap overflow-hidden mask-horizontal-gradient">
       {[...Array(2)].map((_, listIndex) => (
         <ul
           key={`list-${listIndex}`}
@@ -32,9 +32,9 @@ export default function TechsScroll() {
                 iconType={icon}
                 width="7rem"
                 height="7rem"
-                className="w-full grayscale opacity-50"
+                className="grayscale opacity-40"
               />
-              <p className="grayscale">{icon.toString()}</p>
+              <p className="grayscale opacity-40">{icon.toString()}</p>
             </li>
           ))}
         </ul>

@@ -4,6 +4,7 @@ import { Section } from "@/utils/Section";
 import { getAboutMeDescriptions } from "@/utils/Localization";
 import { useGlobalContext } from "@/context/GlobalProvider";
 import TechsScroll from "./TechsScroll";
+import ScrollShadow from "./ScrollShadow";
 
 export default function AboutMe() {
   const { language } = useGlobalContext();
@@ -13,7 +14,7 @@ export default function AboutMe() {
   const personalPhoto: React.ReactElement = (
     <img
       src="/orla-1x1.webp"
-      className="md:h-full w-2/5 object-cover rounded-xl bg-background-accent z-40"
+      className="md:h-full w-4/5 md:w-2/5 object-cover rounded-xl bg-background-accent z-40"
       alt="Personal photo"
     />
   );
@@ -39,11 +40,11 @@ export default function AboutMe() {
 
       <div className="w-11/12 lg:w-9/12 h-full md:h-half-screen p-4 rounded-xl gap-4 flex flex-col md:flex-row items-center justify-center">
         {personalPhoto}
-        <div className="max-h-full w-full overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
+        <ScrollShadow className="max-h-full w-full overflow-y-auto p-4 gap-2 rounded-xl flex flex-col items-center justify-start md:justify-start">
           {introductionAboutMe}
           {projectsKindDescription}
           {actualInterest}
-        </div>
+        </ScrollShadow>
       </div>
     </div>
   );

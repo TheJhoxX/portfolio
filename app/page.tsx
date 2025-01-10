@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div
-      className={`h-screen bg-pattern overflow-y-auto snap-y scroll-smooth font-sf`}
+      className={`h-screen bg-pattern  overflow-y-auto snap-y scroll-smooth font-sf`}
     >
       <ObservableElement
         animation=""
