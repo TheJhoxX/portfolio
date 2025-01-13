@@ -91,7 +91,7 @@ export default function Tooltip({ children, text }: ITooltip) {
     return () => {
       window.removeEventListener("scroll", handleLimitCases);
     };
-  }, [isHovered, calculatePosition, handleLimitCases]);
+  }, [isHovered, handleLimitCases]);
 
   return (
     <div

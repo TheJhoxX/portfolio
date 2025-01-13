@@ -7,6 +7,7 @@ import Tooltip from "./Tooltip";
 import Icon from "./Icon";
 import { IProject } from "@/utils/IProject";
 import { useGlobalContext } from "@/context/GlobalProvider";
+import ScrollShadow from "./ScrollShadow";
 
 export enum AnimationDirection {
   LEFT = "animate-project-fade-in-left",
@@ -107,13 +108,16 @@ export function Project({
         </div>
 
         {showingDescription && (
-          <div
-            className={`absolute bg-black bg-opacity-40 inset-0 z-20 flex items-center justify-center p-2 rounded-xl backdrop-blur-xl pointer-events-auto ${descriptionAnimation}`}
+          <ScrollShadow
+            className={`absolute bg-black bg-opacity-60 p-2 inset-0 z-20 flex items-center justify-center  rounded-xl backdrop-blur-xl pointer-events-auto ${descriptionAnimation}`}
           >
-            <p className="w-3/4 max-h-full text-background dark:text-foreground overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300 text-pretty">
+            <p
+              key={`desc-${project.label}`}
+              className={`w-3/4 max-h-full rounded-xl text-background dark:text-foreground text-pretty ${animationDirection.toString()}`}
+            >
               {project.description[language]}
             </p>
-          </div>
+          </ScrollShadow>
         )}
 
         {!showingDescription &&
