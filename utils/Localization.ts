@@ -11,6 +11,8 @@ const labels = {
       germanTooltip: "Cambiar a alemán",
       spanishTooltip: "Cambiar a español",
       englishTooltip: "Cambiar a inglés",
+      collapseNavbar: "Colapsar menú",
+      expandNavbar: "Expandir menú",
     },
     utils: {
       directWebAccess: "Acceso directo a la web",
@@ -24,6 +26,8 @@ const labels = {
       germanTooltip: "Change to German",
       spanishTooltip: "Change to Spanish",
       englishTooltip: "Change to English",
+      collapseNavbar: "Collapse menu",
+      expandNavbar: "Expand menu",
     },
     utils: {
       directWebAccess: "Direct web access",
@@ -37,6 +41,8 @@ const labels = {
       germanTooltip: "Zu Deutsch wechseln",
       spanishTooltip: "Zu Spanisch wechseln",
       englishTooltip: "Zu Englisch wechseln",
+      collapseNavbar: "Menü einklappen",
+      expandNavbar: "Menü ausklappen",
     },
     utils: {
       directWebAccess: "Enlace directo a la web",
@@ -69,14 +75,14 @@ const projects: IProject[] = [
   {
     label: "Todo-app",
     title: {
-      en: "Todo App",
-      es: "Todo App",
+      en: "Todo-App",
+      es: "Todo-App",
       de: "Aufgaben-App",
     },
     description: {
-      en: "A classic task application with login and session handling using cookies.",
-      es: "Consiste en una clásica aplicación de tareas con login y manejo de sesiones mediante cookies.",
-      de: "Eine klassische Aufgabenanwendung mit Login und Sitzungsverwaltung mithilfe von Cookies.",
+      en: "It is a classic task management application. The app features a login system that allows both user identification and registration. Once a user is logged in, unless they intentionally log out, they will not be prompted to log in again for a full day, as a cookie will be used to maintain the session. The app offers three types of tasks: important, normal, or optional, and it allows users to: add a task, delete selected tasks, and filter tasks based on their importance. The project is complete, and during the deployment process, I noticed a minor detail: session cookies were not being sent correctly from the client to the server. This prevented the backend from maintaining the user session. It seems to be a configuration adjustment for security that prevents them from being received.",
+      es: "Consiste en una clásica aplicación de tareas. La aplicación dispone de un login que permite tanto identificar usuarios como registrarlos. Una vez identificado un usuario, a no ser que cierre sesión intencionalmente, no se le volverá a pedir que la inicie hasta pasado un día y se empleará una cookie como medio de inicio de sesión. En la aplicación se disponen de 3 tipos de tareas: importante, normal u opcional, y será posible: añadir una tarea, eliminar las tareas seleccionadas, filtrar en función de la importancia de la tarea… El proyecto está terminado y en el proceso de despliegue encontré un pequeño detalle: las cookies de sesión no se enviaban correctamente del cliente al servidor. Esto hacía que el backend no pudiera mantener la sesión del usuario. Parece tratarse de algún ajuste de configuración para la seguridad que no permite recibirlas.",
+      de: "Es handelt sich um eine klassische Aufgabenverwaltungsanwendung. Die App verfügt über ein Login-System, das sowohl die Identifikation als auch die Registrierung von Benutzern ermöglicht. Sobald ein Benutzer eingeloggt ist, wird er, sofern er sich nicht absichtlich ausloggt, für einen ganzen Tag nicht erneut aufgefordert, sich einzuloggen. Eine Cookie wird verwendet, um die Sitzung aufrechtzuerhalten. Die App bietet drei Aufgabentypen: wichtig, normal oder optional, und ermöglicht es, Aufgaben hinzuzufügen, ausgewählte Aufgaben zu löschen und Aufgaben nach ihrer Wichtigkeit zu filtern. Das Projekt ist abgeschlossen, und während des Bereitstellungsprozesses fiel mir ein kleines Detail auf: Die Sitzungscookies wurden nicht korrekt vom Client an den Server gesendet. Dadurch konnte das Backend die Benutzersitzung nicht aufrechterhalten. Es scheint sich um eine Konfigurationsanpassung für die Sicherheit zu handeln, die deren Empfang verhindert.",
     },
     technologies: [
       IconType.NextJS,
@@ -96,9 +102,9 @@ const projects: IProject[] = [
       de: "Caralibro: Das soziale Netzwerk",
     },
     description: {
-      en: "Project using Python to find user connections via graphs and improve performance using data structures such as hash tables.",
-      es: "Proyecto realizado con Python para la asignatura: Estructuras de Datos y Algoritmos. En esta se buscaba encontrar conexiones entre usuarios mediante el uso de grafos.",
-      de: "Projekt mit Python, um Benutzerverbindungen über Graphen zu finden und die Leistung mithilfe von Datenstrukturen wie Hashtabellen zu verbessern.",
+      en: "Project developed in Python for the subject: Data Structures and Algorithms. The goal was to find connections between users using graphs (first part) and to improve the performance of the algorithm from the first part by using data structures such as a Hash Table. The assignment description and test files are included in the project.",
+      es: "Proyecto realizado con Python para la asignatura: Estructuras de Datos y Algoritmos. En ésta se buscaba encontrar conexiones entre usuarios mediante el uso de grafos (primera parte) y la mejora del rendimiento del algoritmo de la primera parte utilizando estructuras de datos como una Hash Table. Enunciado y ficheros de prueba se encuentran en el proyecto.",
+      de: "Projekt mit Python für das Fach: Datenstrukturen und Algorithmen. Ziel war es, Verbindungen zwischen Benutzern mithilfe von Graphen zu finden (erster Teil) und die Leistung des Algorithmus aus dem ersten Teil durch den Einsatz von Datenstrukturen wie einer Hash-Tabelle zu verbessern. Aufgabenstellung und Testdateien befinden sich im Projekt.",
     },
     technologies: [IconType.Python],
     image: "grafo.webp",
@@ -133,9 +139,9 @@ const projects: IProject[] = [
       de: "Türmeproblem",
     },
     description: {
-      en: "Solution to a problem proposed in the Algorithm Analysis and Design course. Although the objective was to solve it using dynamic programming, my teammate and I reached a solution using a similar but less efficient approach.",
-      es: "Resolución de un problema planteado para la asignatura: Análisis y Diseño de Algoritmos. El objetivo era resolverlo mediante Programación dinámica pero mi compañero y yo llegamos a una solución mediante una estrategia similar pero menos eficiente.",
-      de: "Lösung eines Problems, das im Kurs Algorithmus-Analyse und -Design vorgeschlagen wurde. Obwohl das Ziel darin bestand, es mit dynamischer Programmierung zu lösen, fanden mein Partner und ich eine ähnliche, aber weniger effiziente Lösung.",
+      en: "Solution to a problem proposed for the subject: Analysis and Design of Algorithms. The goal was to solve it using Dynamic Programming, but my teammate and I arrived at a solution using a similar but less efficient strategy. The project includes not only the code but also some test inputs, a PDF with the problem statement, and another PDF with a description of the project development.",
+      es: "Resolución de un problema planteado para la asignatura: Análisis y Diseño de Algoritmos. El objetivo era resolverlo mediante Programación dinámica, pero mi compañero y yo llegamos a una solución mediante una estrategia similar pero menos eficiente. El proyecto, además del código, contiene algunas entradas de prueba, un PDF con el enunciado y otro con una descripción sobre la elaboración de la práctica.",
+      de: "Lösung eines für das Fach: Analyse und Entwurf von Algorithmen gestellten Problems. Das Ziel war es, das Problem mit dynamischer Programmierung zu lösen, aber mein Kommilitone und ich fanden eine Lösung mit einer ähnlichen, aber weniger effizienten Strategie. Das Projekt enthält neben dem Code einige Testeingaben, eine PDF-Datei mit der Aufgabenstellung und eine weitere mit einer Beschreibung der Projekterstellung.",
     },
     technologies: [IconType.Java],
     image: "hanoi-towers.webp",
@@ -207,4 +213,4 @@ export const getAboutMeDescriptions = (language: Language) =>
 
 export const getLabels = (language: Language) => labels[language];
 
-export const getProjects = (language: Language): IProject[] => projects;
+export const getProjects = (): IProject[] => projects;
