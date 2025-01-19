@@ -15,14 +15,13 @@ export default function Tooltip({ children, text }: ITooltip) {
     transform: "translateX(0.5rem) translateY(-0.5rem)",
   });
 
-  // Cálculo de posición del tooltip
+  // Tooltip position calculation
   const calculatePosition = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const containerRect = container.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
 
     const updatedStyle: React.CSSProperties = { ...tooltipStyle };
 

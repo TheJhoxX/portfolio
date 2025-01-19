@@ -3,13 +3,11 @@
 import ScrollIndicator from "./ScrollIndicator";
 import { Section } from "@/utils/Section";
 import { getProjects } from "@/utils/Localization";
-import { useGlobalContext } from "@/context/GlobalProvider";
 import { useState } from "react";
 import { Project, techStack, AnimationDirection } from "./Project";
 
 export default function Projects() {
-  const { language } = useGlobalContext();
-  const projects = getProjects(language);
+  const projects = getProjects();
 
   const [selectedProject, setSelectedProject] = useState(0);
   const [animationDirection, setAnimationDirection] =

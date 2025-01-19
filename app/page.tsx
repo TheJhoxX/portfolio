@@ -1,5 +1,5 @@
 "use client";
-import SocialAndOccupation from "./components/SocialAndOccupation";
+import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import AboutMe from "./components/AboutMe";
 import NavBar from "./components/NavBar";
@@ -18,7 +18,7 @@ export default function Home() {
         animation=""
         onIntersect={() => setSection(Section.Home)}
       >
-        <SocialAndOccupation />
+        <Hero />
       </ObservableElement>
       <ObservableElement
         animation=""

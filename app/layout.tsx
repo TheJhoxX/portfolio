@@ -38,6 +38,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className={`${sfFont.variable} antialiased relative`}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>

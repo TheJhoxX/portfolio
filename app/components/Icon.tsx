@@ -12,15 +12,32 @@ export default function Icon({
   height = "32px",
   onClick,
   className = "",
+  iconColor,
 }: IIconParamters) {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const color: string = isDarkMode
-    ? inversedColor
-      ? "#1c1c1c"
-      : "#f3f5f5"
-    : inversedColor
-    ? "#f3f5f5"
-    : "#1c1c1c";
+
+  const color: string = (() => {
+    if (iconColor) {
+      switch (iconColor) {
+        case "primary":
+          return "#6E44FF";
+        case "secondary":
+          return "#F52F57";
+        case "accent":
+          return "#AFFC41";
+        default:
+          return iconColor;
+      }
+    } else {
+      return isDarkMode
+        ? inversedColor
+          ? "#1c1c1c"
+          : "#f3f5f5"
+        : inversedColor
+        ? "#f3f5f5"
+        : "#1c1c1c";
+    }
+  })();
 
   const commonProps = { width, height, className };
 
@@ -114,32 +131,19 @@ export default function Icon({
           {...commonProps}
           viewBox="0 0 26 26"
         >
-          <g fill="none">
-            <defs>
-              <mask id="IconifyId1932b80fd7788f4e83">
-                <path fill="#fff" d="M0 0h26v26H0z" />
-                <g fill="#000">
-                  <path
-                    fillRule="evenodd"
-                    d="M4.25 13a8.75 8.75 0 1 0 17.5 0a8.75 8.75 0 0 0-17.5 0m16 0a7.25 7.25 0 1 1-14.5 0a7.25 7.25 0 0 1 14.5 0"
-                    clipRule="evenodd"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M9.25 13c0 4.522 1.491 8.25 3.75 8.25s3.75-3.728 3.75-8.25S15.259 4.75 13 4.75S9.25 8.478 9.25 13m6 0c0 3.762-1.195 6.75-2.25 6.75s-2.25-2.988-2.25-6.75S11.945 6.25 13 6.25s2.25 2.988 2.25 6.75"
-                    clipRule="evenodd"
-                  />
-                  <path d="m6.602 8.467l1.006-1.112q.15.136.325.267c1.271.952 3.3 1.54 5.515 1.54c1.891 0 3.653-.427 4.931-1.158q.463-.265.819-.57l.974 1.141q-.466.399-1.048.73c-1.516.868-3.534 1.356-5.676 1.356c-2.522 0-4.865-.678-6.415-1.839a6 6 0 0 1-.431-.355m0 9.082l1.006 1.112q.15-.136.325-.267c1.271-.952 3.3-1.54 5.515-1.54c1.891 0 3.653.427 4.931 1.158q.463.265.819.57l.974-1.141a7 7 0 0 0-1.048-.73c-1.516-.868-3.534-1.356-5.676-1.356c-2.522 0-4.865.678-6.415 1.839a6 6 0 0 0-.431.355M4.75 13.75v-1.5h16.5v1.5z" />
-                </g>
-              </mask>
-            </defs>
-            <circle
-              cx="13"
-              cy="13"
-              r="13"
-              fill={color}
-              mask="url(#IconifyId1932b80fd7788f4e83)"
+          <circle cx="13" cy="13" r="13" fill={color} />
+          <g fill={isDarkMode ? "#1c1c1c" : "#f3f5f5"}>
+            <path
+              fillRule="evenodd"
+              d="M4.25 13a8.75 8.75 0 1 0 17.5 0a8.75 8.75 0 0 0-17.5 0m16 0a7.25 7.25 0 1 1-14.5 0a7.25 7.25 0 0 1 14.5 0"
+              clipRule="evenodd"
             />
+            <path
+              fillRule="evenodd"
+              d="M9.25 13c0 4.522 1.491 8.25 3.75 8.25s3.75-3.728 3.75-8.25S15.259 4.75 13 4.75S9.25 8.478 9.25 13m6 0c0 3.762-1.195 6.75-2.25 6.75s-2.25-2.988-2.25-6.75S11.945 6.25 13 6.25s2.25 2.988 2.25 6.75"
+              clipRule="evenodd"
+            />
+            <path d="m6.602 8.467l1.006-1.112q.15.136.325.267c1.271.952 3.3 1.54 5.515 1.54c1.891 0 3.653-.427 4.931-1.158q.463-.265.819-.57l.974 1.141q-.466.399-1.048.73c-1.516.868-3.534 1.356-5.676 1.356c-2.522 0-4.865-.678-6.415-1.839a6 6 0 0 1-.431-.355m0 9.082l1.006 1.112q.15-.136.325-.267c1.271-.952 3.3-1.54 5.515-1.54c1.891 0 3.653.427 4.931 1.158q.463.265.819.57l.974-1.141a7 7 0 0 0-1.048-.73c-1.516-.868-3.534-1.356-5.676-1.356c-2.522 0-4.865.678-6.415 1.839a6 6 0 0 0-.431.355M4.75 13.75v-1.5h16.5v1.5z" />
           </g>
         </svg>
       );

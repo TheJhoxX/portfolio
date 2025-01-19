@@ -8,4 +8,5 @@ export interface IIconParamters {
   inversedColor?: boolean;
   onClick?: () => void;
   className?: string;
+  iconColor?: string;
 }

@@ -15,7 +15,12 @@ const labels = {
       expandNavbar: "Expandir menú",
     },
     utils: {
-      directWebAccess: "Acceso directo a la web",
+      goToWebsite: "Ir a la página web",
+      goToRepository: "Ir al repositorio",
+      showProjectDescription: "Mostrar descripción del proyecto",
+      name: "Víctor Jorge Sibaja",
+      job: "Desarrollador de Software en GMV",
+      studies: "Estudiante de Ingeniería Informática",
     },
   },
   en: {
@@ -30,7 +35,12 @@ const labels = {
       expandNavbar: "Expand menu",
     },
     utils: {
-      directWebAccess: "Direct web access",
+      goToWebsite: "Go to the website",
+      goToRepository: "Go to the repository",
+      showProjectDescription: "Show project description",
+      name: "Víctor Jorge Sibaja",
+      job: "Software Developer at GMV",
+      studies: "Computer Engineering Student",
     },
   },
   de: {
@@ -45,7 +55,12 @@ const labels = {
       expandNavbar: "Menü ausklappen",
     },
     utils: {
-      directWebAccess: "Enlace directo a la web",
+      goToWebsite: "Zur Webseite gehen",
+      goToRepository: "Zum Repository gehen",
+      showProjectDescription: "Projektbeschreibung anzeigen",
+      name: "Víctor Jorge Sibaja",
+      studies: "Informatikstudent",
+      job: "Softwareentwickler bei GMV",
     },
   },
 };

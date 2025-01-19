@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
 import { Section } from "@/utils/Section";
 import Tooltip from "./Tooltip";
@@ -13,41 +11,46 @@ interface NavBarProps {
   activeSection: Section;
 }
 
+const calculateMarkerStyle = (
+  navRef: React.RefObject<HTMLDivElement>,
+  activeSection: Section
+) => {
+  if (navRef.current) {
+    const activeLink = navRef.current.querySelector(
+      `a[data-section="${activeSection}"]`
+    ) as HTMLElement;
+
+    if (activeLink) {
+      const { offsetLeft, offsetWidth, offsetHeight } = activeLink;
+      return {
+        left: offsetLeft,
+        width: offsetWidth,
+        height: offsetHeight,
+      };
+    }
+  }
+  return { left: 0, width: 0, height: 0 };
+};
+
 export default function NavBar({ activeSection }: NavBarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
+  const expandNavRef = useRef<HTMLDivElement | null>(null);
+
   const { language, setLanguage } = useGlobalContext();
   const labels = getLabels(language);
 
-  // Estilo dinámico para el marcador
   const [markerStyle, setMarkerStyle] = useState({
     left: 0,
     width: 0,
     height: 0,
   });
 
-  const updateMarkerStyle = () => {
-    if (navRef.current) {
-      const activeLink = navRef.current.querySelector(
-        `a[data-section="${activeSection}"]`
-      ) as HTMLElement;
-
-      if (activeLink) {
-        const { offsetLeft, offsetWidth, offsetHeight } = activeLink;
-        setMarkerStyle({
-          left: offsetLeft,
-          width: offsetWidth,
-          height: offsetHeight,
-        });
-      }
-    }
-  };
-
   useEffect(() => {
-    updateMarkerStyle();
+    setMarkerStyle(calculateMarkerStyle(navRef, activeSection));
 
     const handleResize = () => {
-      updateMarkerStyle();
+      setMarkerStyle(calculateMarkerStyle(navRef, activeSection));
     };
 
     window.addEventListener("resize", handleResize);
@@ -58,27 +61,22 @@ export default function NavBar({ activeSection }: NavBarProps) {
 
   return (
     <div
-      className={`absolute bottom-4 transition-all duration-300 ease-in-out ${
-        isCollapsed ? "right-4 translate-x-0" : "right-1/2 translate-x-1/2"
-      }`}
+      className={`absolute bottom-4 flex items-center transform justify-center ${
+        !isCollapsed ? " translate-x-1/2 right-1/2" : "right-4"
+      } `}
     >
-      <div
-        ref={navRef}
-        className={`relative flex items-center gap-2 rounded-full text-sm text-nowrap transition-all  duration-300 ${
-          !isCollapsed
-            ? "shadow-md shadow-foreground backdrop-blur-lg py-2 px-4 bg-transparent"
-            : ""
-        }`}
-      >
-        {!isCollapsed && (
+      {!isCollapsed ? (
+        <div
+          ref={navRef}
+          className={`bottom-4 relative animate-navbar-in flex items-center gap-2 rounded-full text-sm text-nowrap shadow-md transition-all duration-300 shadow-foreground backdrop-blur-lg py-2 px-4`}
+        >
           <div className="flex items-center justify-between gap-2">
-            {/* Marker */}
             <div
               className="absolute bg-foreground rounded-full transition-all duration-300"
               style={{ ...markerStyle }}
             ></div>
 
-            {/* Links */}
+            {/* Sections */}
             <a
               href={`#${Section.Home.toString()}`}
               data-section={Section.Home}
@@ -149,26 +147,42 @@ export default function NavBar({ activeSection }: NavBarProps) {
                 />
               </Tooltip>
             </div>
+            <div className="cursor-pointer flex items-center justify-center">
+              <Tooltip text={labels.navbar.expandNavbar}>
+                <Icon
+                  iconType={IconType.Close}
+                  className="transition-all duration-300"
+                  onClick={() => {
+                    navRef.current?.classList.remove("animate-navbar-in");
+                    navRef.current?.classList.add("animate-navbar-out");
+                    setTimeout(() => {
+                      setIsCollapsed(true);
+                    }, 300);
+                  }}
+                />
+              </Tooltip>
+            </div>
           </div>
-        )}
-        {/* Expand and collapse Button */}
-        <div className="cursor-pointer flex items-center justify-center">
-          <Tooltip
-            text={
-              isCollapsed
-                ? labels.navbar.expandNavbar
-                : labels.navbar.collapseNavbar
-            }
-          >
+        </div>
+      ) : (
+        <div
+          className="animate-navbar-in relative cursor-pointer"
+          ref={expandNavRef}
+        >
+          <Tooltip text={labels.navbar.expandNavbar}>
             <Icon
-              iconType={isCollapsed ? IconType.Menu : IconType.Close}
+              iconType={IconType.Menu}
               onClick={() => {
-                setIsCollapsed(!isCollapsed);
+                expandNavRef.current?.classList.add("animate-navbar-out");
+                expandNavRef.current?.classList.remove("animate-navbar-in");
+                setTimeout(() => {
+                  setIsCollapsed(false);
+                }, 300);
               }}
             />
           </Tooltip>
         </div>
-      </div>
+      )}
     </div>
   );
 }

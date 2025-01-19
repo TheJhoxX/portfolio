@@ -1,5 +1,3 @@
-"use client";
-
 import { Section } from "@/utils/Section";
 import { getAboutMeDescriptions } from "@/utils/Localization";
 import { useGlobalContext } from "@/context/GlobalProvider";
@@ -13,22 +11,22 @@ export default function AboutMe() {
 
   const personalPhoto: React.ReactElement = (
     <img
-      src="/orla-1x1.webp"
-      className="md:h-full w-4/5 md:w-2/5 object-cover rounded-xl bg-background-accent z-40"
+      src="/foto-orla-sin-fondo.png"
+      className="md:h-full w-4/5 md:w-2/5 object-cover mask-hard-bottom-gradient"
       alt="Personal photo"
     />
   );
 
   const introductionAboutMe: React.ReactElement = (
-    <p className="text-pretty w-full rounded-xl">{aboutMe.interests}</p>
+    <p className="text-pretty w-full">{aboutMe.interests}</p>
   );
 
   const projectsKindDescription: React.ReactElement = (
-    <p className="text-pretty w-full rounded-xl">{aboutMe.projectsKind}</p>
+    <p className="text-pretty w-full">{aboutMe.projectsKind}</p>
   );
 
   const actualInterest: React.ReactElement = (
-    <p className="text-pretty w-full rounded-xl">{aboutMe.interests}</p>
+    <p className="text-pretty w-full">{aboutMe.interests}</p>
   );
 
   return (

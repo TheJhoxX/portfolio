@@ -8,6 +8,7 @@ import Icon from "./Icon";
 import { IProject } from "@/utils/IProject";
 import { useGlobalContext } from "@/context/GlobalProvider";
 import ScrollShadow from "./ScrollShadow";
+import { getLabels } from "@/utils/Localization";
 
 export enum AnimationDirection {
   LEFT = "animate-project-fade-in-left",
@@ -22,10 +23,10 @@ export const techStack = (technologies: IconType[], label: string) => {
       animation="animate-tech-bottom"
       className="flex w-full items-center justify-center"
     >
-      <div className="bg-foreground px-2 py-1 rounded-full gap-2 flex items-center justify-center">
+      <div className="bg-foreground p-2 rounded-full gap-2 flex items-center justify-center">
         {technologies.map((tech, index) => (
           <ObservableElement
-            className="h-full px-1 py-1 flex items-center justify-center"
+            className="h-full p-1 flex items-center justify-center"
             animationDelay={index * 100 + 400}
             key={`project-${label}-${tech.toString()}`}
             animation="animate-tech-bottom"
@@ -50,7 +51,7 @@ export const projectTitle = (
       animation={animationDirection.toString()}
       className="absolute z-20 bottom-0 w-full rounded-b-xl bg-gradient-to-t from-black/60 via-black/30 to-transparent text-background-accent dark:text-foreground p-4"
     >
-      <p className="font-bold text-5xl">{title}</p>
+      <h1 className="font-bold md:text-5xl text-3xl">{title}</h1>
     </ObservableElement>
   );
 };
@@ -63,6 +64,7 @@ export function Project({
   animationDirection: AnimationDirection;
 }) {
   const { language } = useGlobalContext();
+  const labels = getLabels(language);
   const [showingDescription, setShowingDescription] = useState(false);
   const [iconAnimation, setIconAnimation] =
     useState<string>("animate-scale-in");
@@ -86,24 +88,37 @@ export function Project({
         <ObservableElement
           key={`img-${project.label}`}
           animation={animationDirection.toString()}
-          className="w-full h-full flex items-center justify-center"
+          className="w-full h-full flex items-center justify-center rounded-xl p-2 "
         >
           <img
             src={project.image}
             alt={project.label}
-            className="max-w-full max-h-full w-full object-contain rounded-xl"
+            className="max-h-full object-contain rounded-xl "
           />
         </ObservableElement>
 
-        <div className="absolute top-2 right-2 z-50 flex items-center justify-center pointer-events-auto">
+        <div className="absolute top-2 right-2 z-50 flex items-center justify-center gap-2 pointer-events-auto">
+          {project.link && !showingDescription && (
+            <Tooltip text={labels.utils.goToWebsite}>
+              <Icon link={project.link} iconType={IconType.Web} />
+            </Tooltip>
+          )}
+          {project.repository && !showingDescription && (
+            <Tooltip text={labels.utils.goToRepository}>
+              <Icon link={project.repository} iconType={IconType.Github} />
+            </Tooltip>
+          )}
           <div
-            className={`flex cursor-pointer items-center justify-center ${iconAnimation}`}
+            className={`flex items-center cursor-pointer rounded-full justify-center `}
           >
-            <Icon
-              className="cursor-pointer"
-              iconType={showingDescription ? IconType.Close : IconType.Info}
-              onClick={handleIconClick}
-            />
+            <Tooltip text={labels.utils.showProjectDescription}>
+              <Icon
+                className={` ${iconAnimation}`}
+                iconType={showingDescription ? IconType.Close : IconType.Info}
+                onClick={handleIconClick}
+                iconColor={showingDescription ? undefined : "primary"}
+              />
+            </Tooltip>
           </div>
         </div>
 

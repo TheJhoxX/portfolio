@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import lineClamp from "@tailwindcss/line-clamp"; // Importa el plugin aquí
 import plugin from "tailwindcss/plugin";
 
 const config: Config = {
@@ -112,9 +111,14 @@ const config: Config = {
           maskImage: "linear-gradient(to left, transparent, black 128px)",
           WebkitMaskImage: "linear-gradient(to left, transparent, black 128px)",
         },
+
+        ".mask-hard-bottom-gradient": {
+          maskImage: "linear-gradient(to top, transparent 0%, black 50px)",
+          WebkitMaskImage:
+            "linear-gradient(to top, transparent 0%, black 50px)",
+        },
       });
     }),
-    lineClamp,
   ],
 };
 export default config;
