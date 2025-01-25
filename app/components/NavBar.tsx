@@ -61,7 +61,7 @@ export default function NavBar({ activeSection }: NavBarProps) {
 
   return (
     <div
-      className={`absolute bottom-4 flex items-center transform justify-center ${
+      className={`absolute bottom-4 flex items-center transform justify-center z-50 ${
         !isCollapsed ? " translate-x-1/2 right-1/2" : "right-4"
       } `}
     >
