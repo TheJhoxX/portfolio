@@ -20,7 +20,7 @@ const labels = {
       showProjectDescription: "Mostrar descripción del proyecto",
       name: "Víctor Jorge Sibaja",
       job: "Desarrollador de Software en GMV",
-      studies: "Estudiante de Ingeniería Informática",
+      studies: "Ingeniero Informático",
     },
   },
   en: {
@@ -40,7 +40,7 @@ const labels = {
       showProjectDescription: "Show project description",
       name: "Víctor Jorge Sibaja",
       job: "Software Developer at GMV",
-      studies: "Computer Engineering Student",
+      studies: "Computer Engineer",
     },
   },
   de: {
@@ -59,7 +59,7 @@ const labels = {
       goToRepository: "Zum Repository gehen",
       showProjectDescription: "Projektbeschreibung anzeigen",
       name: "Víctor Jorge Sibaja",
-      studies: "Informatikstudent",
+      studies: "Softwareingenieur",
       job: "Softwareentwickler bei GMV",
     },
   },
