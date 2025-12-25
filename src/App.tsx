@@ -1,50 +1,48 @@
-import { useState } from 'react';
 import './App.css';
-import Project from './components/Project/Project';
+import { SiNestjs, SiNextdotjs, SiThreedotjs, SiTypeorm } from 'react-icons/si';
+import { RiTailwindCssFill } from 'react-icons/ri';
+import { Project } from './components/Project/Project';
+import { FaFlutter, FaNodeJs } from 'react-icons/fa6';
 
 function App() {
-	const [focusedProject, setFocusedProject] = useState<number | null>(null);
-
-	const handleProjectClick = (index: number) => {
-		setFocusedProject(index);
-	};
-
 	return (
-		<div className='bg-white h-screen w-screen overflow-x-hidden p-4 grid grid-rows-[auto_1fr_auto]'>
-			<header className='w-full'></header>
-			<main className='w-full h-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center items-start content-start'>
-				<Project
-					index={0}
-					handleClick={handleProjectClick}
-					imgPath='sugus-image.png'
-					focused={focusedProject === 0}
-				/>
-				<Project
-					index={1}
-					handleClick={handleProjectClick}
-					imgPath='todo-app-image.png'
-					focused={focusedProject === 1}
-				/>
-				<Project
-					index={2}
-					handleClick={handleProjectClick}
-					imgPath='bash.webp'
-					focused={focusedProject === 2}
-				/>
-				<Project
-					index={3}
-					handleClick={handleProjectClick}
-					imgPath='hanoi-towers.webp'
-					focused={focusedProject === 3}
-				/>
-				<Project
-					index={4}
-					handleClick={handleProjectClick}
-					imgPath='nested-logo.png'
-					focused={focusedProject === 4}
-				/>
+		<div className='bg-pattern h-screen w-screen overflow-x-hidden p-8'>
+			<header className='z-10 w-2/3 '></header>
+			<main className='h-full flex items-start justify-center'>
+				<div className='w-full lg:w-2/3 flex flex-col items-center gap-8'>
+					<Project
+						date='2025'
+						title='GymPrep'
+						description="Final project for the Computer Science Bachelor's degree"
+						imgName='gymprep.jpeg'
+						technologies={[<FaFlutter />, <SiNestjs />, <SiTypeorm />]}
+					/>
+					<Project
+						date='2024'
+						title='SUGUSUVa website'
+						description='Website for the scholar organization SUGUS from the University of Valladolid.'
+						imgName='sugus.png'
+						technologies={[
+							<SiNextdotjs />,
+							<SiThreedotjs />,
+							<RiTailwindCssFill />,
+						]}
+					/>
+					<Project
+						date='2023'
+						title='ToDo App'
+						description='Classic ToDo application that to manage your tasks efficiently with three task types: important, default or optional.'
+						imgName='todo-app.png'
+						technologies={[
+							<SiNextdotjs />,
+							<RiTailwindCssFill />,
+							<FaNodeJs />,
+						]}
+					/>
+					<div>Container 2</div>
+				</div>
 			</main>
-			<footer className='w-full'></footer>
+			<footer className='z-10 w-full'></footer>
 		</div>
 	);
 }

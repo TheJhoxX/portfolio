@@ -3,3 +3,12 @@
 button {
 	border: none;
 }
+
+.bg-pattern {
+	background: #f3f3f3;
+}
+
+.bubble {
+	background-color: rgba(255, 255, 255, 0.7);
+	@apply inset-ring-4 inset-ring-white backdrop-blur-lg;
+}
