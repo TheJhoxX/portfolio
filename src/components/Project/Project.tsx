@@ -32,11 +32,11 @@ export function Project(props: ProjectProps): ReactNode {
 }
 
 const defaultProject = (props: ProjectProps): ReactNode => (
-	<div className='max-w-full flex flex-col md:flex-row md:justify-center gap-4'>
+	<div className='w-full flex flex-col items-center justify-start md:items-start md:flex-row md:justify-center gap-4'>
 		<img
 			src={`/projects/${props.imgName}`}
 			alt={'Sugus'}
-			className='w-sm h-auto aspect-square object-cover rounded-xl bg-transparent shadow-lg'
+			className='w-sm h-auto aspect-square object-cover rounded-xl bg-transparent shadow-slate-500 shadow-md'
 			draggable={false}
 		/>
 		<div className='h-full flex flex-col gap-2'>
