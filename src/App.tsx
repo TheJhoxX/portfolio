@@ -1,7 +1,7 @@
 import './App.css';
 import { SiNestjs, SiNextdotjs, SiThreedotjs, SiTypeorm } from 'react-icons/si';
 import { RiTailwindCssFill } from 'react-icons/ri';
-import { Project } from './components/Project/Project';
+import { BubbleIcon, Project } from './components/Project/Project';
 import { FaFlutter, FaNodeJs, FaReact } from 'react-icons/fa6';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { useEffect, useState, type ReactNode } from 'react';
@@ -21,40 +21,13 @@ function App() {
 		<div className='bg-pattern min-h-screen w-full overflow-x-hidden p-8 pb-16'>
 			<header className='z-10 w-2/3'></header>
 			<main className='h-full flex items-start justify-center'>
-				<div className='w-full lg:w-2/3 flex flex-col items-center gap-12'>
-					<h2 className='text-7xl font-bold w-full' id='projects'>
-						Projects
-					</h2>
-					<Project
-						date='2025'
-						title='GymPrep'
-						description="Final project for the Computer Science Bachelor's degree"
-						imgName='gymprep.jpeg'
-						technologies={[<FaFlutter />, <SiNestjs />, <SiTypeorm />]}
-					/>
-					<Project
-						date='2024'
-						title='SUGUSUVa website'
-						description='Website for the scholar organization SUGUS from the University of Valladolid.'
-						imgName='sugus.png'
-						technologies={[
-							<SiNextdotjs />,
-							<SiThreedotjs />,
-							<RiTailwindCssFill />,
-						]}
-					/>
-					<Project
-						date='2023'
-						title='ToDo App'
-						description='Classic ToDo application that to manage your tasks efficiently with three task types: important, default or optional.'
-						imgName='todo-app.png'
-						technologies={[
-							<SiNextdotjs />,
-							<RiTailwindCssFill />,
-							<FaNodeJs />,
-						]}
-					/>
+				<div className='w-full md:w-2/3 flex flex-col items-center gap-12 pb-20 '>
+					<h1 className='text-8xl text-center md:text-9xl font-bold'>
+						Víctor Jorge Sibaja
+					</h1>
+					{renderProjects()}
 					{renderAboutMe()}
+					{renderExperience()}
 				</div>
 			</main>
 			<footer className='z-10 w-full'></footer>
@@ -62,11 +35,46 @@ function App() {
 	);
 }
 
+const renderProjects = (): ReactNode => {
+	return (
+		<>
+			<h2 className='text-6xl md:text-7xl font-bold ' id='projects'>
+				Projects
+			</h2>
+			<Project
+				date='2025'
+				title='GymPrep'
+				description="Final project for the Computer Science Bachelor's degree"
+				imgName='gymprep.jpeg'
+				technologies={[<FaFlutter />, <SiNestjs />, <SiTypeorm />]}
+			/>
+			<Project
+				date='2024'
+				title='SUGUSUVa website'
+				description='Website for the scholar organization SUGUS from the University of Valladolid.'
+				imgName='sugus.png'
+				technologies={[
+					<SiNextdotjs />,
+					<SiThreedotjs />,
+					<RiTailwindCssFill />,
+				]}
+			/>
+			<Project
+				date='2023'
+				title='ToDo App'
+				description='Classic ToDo application that to manage your tasks efficiently with three task types: important, default or optional.'
+				imgName='todo-app.png'
+				technologies={[<SiNextdotjs />, <RiTailwindCssFill />, <FaNodeJs />]}
+			/>
+		</>
+	);
+};
+
 const renderAboutMe = (): ReactNode => {
 	return (
 		<div className='flex w-full flex-col items-center md:items-start md:flex-row md:justify-center gap-4'>
 			<div className='h-full flex flex-col justify-start gap-4'>
-				<h2 className='text-7xl font-bold'>About me</h2>
+				<h2 className='text-6xl md:text-7xl font-bold'>About me</h2>
 				<p className='max-w-sm'>
 					Over the past few years, I’ve worked on a wide range of professional
 					and academic projects. I’ve used everything from modern frameworks
@@ -94,16 +102,17 @@ const renderAboutMe = (): ReactNode => {
 					text='TypeScript'
 				/>
 				<AboutCell topContent='💬' text='Spanish / English' />
+
 				<AboutCell
 					topContent={
 						<img
-							src='/gmv-logo.svg'
-							alt='GMV'
+							src='/bcg-logo.svg'
+							alt='BCG'
 							className='h-8 w-auto'
 							loading='lazy'
 						/>
 					}
-					text='Currently at GMV'
+					text='Currently at BCG'
 				/>
 				<AboutCell type='image' imgSrc='personal-photo.jpg' />
 			</div>
@@ -131,5 +140,25 @@ function AboutCell(props: AboutCellProps): ReactNode {
 		</p>
 	);
 }
+
+const renderExperience = (): ReactNode => {
+	return (
+		<>
+			<h2 className='text-6xl md:text-7xl font-bold' id='experience'>
+				Experience
+			</h2>
+			<BubbleIcon className='w-full flex space-between gap-4 rounded-xl'>
+				<img
+					src='/bcg-logo.svg'
+					className='text-white rounded-xl aspect-video w-full'
+				/>
+				<img
+					src='/gmv-background.jpg'
+					className='aspect-video rounded-xl w-full'
+				/>
+			</BubbleIcon>
+		</>
+	);
+};
 
 export default App;
