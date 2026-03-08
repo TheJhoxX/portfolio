@@ -45,7 +45,7 @@ const renderProjects = (): ReactNode => {
 				date='2025'
 				title='GymPrep'
 				description="Final project for the Computer Science Bachelor's degree"
-				imgName='gymprep.jpeg'
+				imgName='gymprep.webp'
 				technologies={[<FaFlutter />, <SiNestjs />, <SiTypeorm />]}
 			/>
 			<Project
