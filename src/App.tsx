@@ -1,11 +1,12 @@
 import './App.css';
 import { SiNestjs, SiNextdotjs, SiThreedotjs, SiTypeorm } from 'react-icons/si';
 import { RiTailwindCssFill } from 'react-icons/ri';
-import { BubbleIcon, Project } from './components/Project/Project';
+import { Project } from './components/Project/Project';
 import { FaFlutter, FaNodeJs, FaReact } from 'react-icons/fa6';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { useEffect, useState, type ReactNode } from 'react';
 import { applyTheme, getTheme, type Theme } from './theme';
+import { ExperienceNode } from './components/ExperienceNode/ExperienceNode';
 
 type AboutCellProps =
 	| { type?: 'default'; topContent?: ReactNode; text: string }
@@ -147,16 +148,51 @@ const renderExperience = (): ReactNode => {
 			<h2 className='text-6xl md:text-7xl font-bold' id='experience'>
 				Experience
 			</h2>
-			<BubbleIcon className='w-full flex space-between gap-4 rounded-xl'>
-				<img
-					src='/bcg-logo.svg'
-					className='text-white rounded-xl aspect-video w-full'
+			<div className='bubble w-full flex flex-col items-start gap-4 rounded-xl text-base p-4'>
+				<ExperienceNode
+					company='Boston Consulting Group (BCG)'
+					imgSrc='/bcg-logo.svg'
+					companyColor={'#00532F'}
+					experiences={[
+						{
+							position: 'Product Delivery Intern - X Delivery',
+							startDate: 'Feb 2026',
+							description:
+								'Development of new features and maintenance of projects for the Energy sector',
+						},
+					]}
 				/>
-				<img
-					src='/gmv-background.jpg'
-					className='aspect-video rounded-xl w-full'
+				<ExperienceNode
+					company='GMV'
+					experiences={[
+						{
+							startDate: 'Sept 2025',
+							endDate: 'Feb 2026',
+							position: 'Front-end Developer - Product Department',
+							description:
+								'Development of new features, refactoring, and bug fixing for the Product department in the ABT team.',
+						},
+						{
+							position:
+								'Software Developer - Customer Service & Maintenance Department',
+							startDate: 'Aug 2024',
+							endDate: 'Sept 2025',
+							description:
+								'Development of maintenance software and new functionalities for customer service in the Intelligent Transportation Systems sector',
+						},
+						{
+							position:
+								'Software Engineer Intern - Customer Service & Maintenance Department',
+							startDate: 'Aug 2024',
+							endDate: 'Sept 2025',
+							description:
+								'Development of maintenance software and new functionalities for customer service in the Intelligent Transportation Systems sector',
+						},
+					]}
+					imgSrc='/gmv-background.jpg'
+					companyColor={'#E00024'}
 				/>
-			</BubbleIcon>
+			</div>
 		</>
 	);
 };

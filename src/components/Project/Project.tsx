@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react';
 
-import styles from './Project.module.css';
-
 export type ProjectProps = {
 	title: string;
 	date: string;
