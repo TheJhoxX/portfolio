@@ -25,20 +25,21 @@ export const ExperienceNode = ({
 	const renderMarker = (index: number): ReactNode => {
 		if (index === 0 && imgSrc) {
 			return (
-				<div className='relative flex items-center justify-center w-full bg-white'>
+				<div className='relative flex items-start justify-center w-full h-full'>
 					<img
 						src={imgSrc}
 						alt={company}
-						className='w-40 aspect-video object-fill rounded-xl bg-white'
+						className='w-40 aspect-video object-fill rounded-xl'
+						style={{ backgroundColor: companyColor ?? 'transparent' }}
 					/>
 				</div>
 			);
 		}
 
 		return (
-			<div className='relative flex items-center justify-center w-16 h-16'>
+			<div className='relative flex items-center justify-center'>
 				<span
-					className='block w-4 h-4 rounded-full border-4 border-white'
+					className='block w-4 h-4 rounded-full'
 					style={{ backgroundColor: timelineColor }}
 				/>
 			</div>
@@ -50,7 +51,7 @@ export const ExperienceNode = ({
 		const isLast = index === experiences.length - 1;
 
 		return (
-			<div key={key} className='grid grid-cols-[160px_1fr] gap-6 items-center'>
+			<div key={key} className='grid grid-cols-[10rem_1fr] gap-6 items-center'>
 				<div className='relative flex justify-center items-center self-stretch'>
 					{index > 0 && (
 						<div
@@ -69,18 +70,20 @@ export const ExperienceNode = ({
 					{renderMarker(index)}
 				</div>
 
-				<section className='py-6'>
+				<div>
 					<p className='font-bold text-xl'>
 						{experience.position} at{' '}
 						<span style={{ color: companyColor ?? 'inherit' }}>{company}</span>
 					</p>
 
-					<p className='font-semibold'>
+					<p className='font-semibold pb-2'>
 						{experience.startDate} - {experience.endDate || 'Present'}
 					</p>
 
-					{experience.description && <p>{experience.description}</p>}
-				</section>
+					{experience.description && (
+						<p className='pb-4'>{experience.description}</p>
+					)}
+				</div>
 			</div>
 		);
 	};
