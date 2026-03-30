@@ -2,15 +2,13 @@ import './App.css';
 import { SiNestjs, SiNextdotjs, SiThreedotjs, SiTypeorm } from 'react-icons/si';
 import { RiTailwindCssFill } from 'react-icons/ri';
 import { Project } from './components/Project/Project';
-import { FaFlutter, FaNodeJs, FaReact } from 'react-icons/fa6';
+import { FaFlutter, FaLinkedinIn, FaNodeJs, FaReact } from 'react-icons/fa6';
 import { BiLogoTypescript } from 'react-icons/bi';
 import { useEffect, useState, type ReactNode } from 'react';
 import { applyTheme, getTheme, type Theme } from './theme';
 import { ExperienceNode } from './components/ExperienceNode/ExperienceNode';
-
-type AboutCellProps =
-	| { type?: 'default'; topContent?: ReactNode; text: string }
-	| { type: 'image'; imgSrc: string };
+import { IoIosMail, IoLogoGithub } from 'react-icons/io';
+import { AboutCell } from './components/AboutCell/AboutCell';
 
 function App() {
 	const [theme, setTheme] = useState<Theme>(() => getTheme());
@@ -22,10 +20,44 @@ function App() {
 		<div className='bg-pattern min-h-screen w-full overflow-x-hidden p-8 pb-16'>
 			<header className='z-10 w-2/3'></header>
 			<main className='h-full flex items-start justify-center'>
-				<div className='w-full md:w-2/3 flex flex-col items-center gap-12 pb-20 '>
-					<h1 className='text-8xl text-center md:text-9xl font-bold'>
-						Víctor Jorge Sibaja
-					</h1>
+				<div className='w-full md:w-2/3 flex flex-col items-center gap-14 pb-20 '>
+					<div>
+						<h1 className='text-8xl text-center md:text-9xl font-bold mb-14'>
+							Víctor Jorge Sibaja
+						</h1>
+						<div className='w-full flex items-center justify-center mb-4'>
+							<div className='bubble rounded-xl px-2 py-1'>
+								<span className='pr-4'>Front end developer</span>{' '}
+								<span className='py-4'>Software Engineer</span>
+							</div>
+						</div>
+						<div className='flex items-center justify-center gap-4'>
+							<a
+								target='_blank'
+								rel='noopener noreferrer'
+								href='https://www.linkedin.com/in/v%C3%ADctor-jorge-sibaja-156899196/'
+								className='bubble p-2 rounded-full cursor-pointer'
+							>
+								<FaLinkedinIn className='text-black dark:text-white' />
+							</a>
+							<a
+								href='https://github.com/TheJhoxX'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='bubble p-2 rounded-full cursor-pointer'
+							>
+								<IoLogoGithub className='text-black dark:text-white' />
+							</a>
+							<a
+								href='mailto:victorjorgesibaja@gmail.com'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='bubble p-2 rounded-full cursor-pointer'
+							>
+								<IoIosMail className='text-black dark:text-white' />
+							</a>
+						</div>
+					</div>
 					{renderProjects()}
 					{renderAboutMe()}
 					{renderExperience()}
@@ -120,27 +152,6 @@ const renderAboutMe = (): ReactNode => {
 		</div>
 	);
 };
-
-function AboutCell(props: AboutCellProps): ReactNode {
-	if (props.type === 'image')
-		return (
-			<div
-				className='about-cell-image'
-				style={{ backgroundImage: `url('/${props.imgSrc}')` }}
-			>
-				<span className='absolute inset-0 bg-black/10' />
-			</div>
-		);
-
-	return (
-		<p className='about-cell bubble'>
-			{props.topContent ? (
-				<span className='about-cell-top'>{props.topContent}</span>
-			) : null}
-			<span className='about-cell-text'>{props.text}</span>
-		</p>
-	);
-}
 
 const renderExperience = (): ReactNode => {
 	return (
