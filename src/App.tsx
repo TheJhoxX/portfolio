@@ -11,7 +11,8 @@ import { IoIosMail, IoLogoGithub } from 'react-icons/io';
 import { AboutCell } from './components/AboutCell/AboutCell';
 
 function App() {
-	const [theme, setTheme] = useState<Theme>(() => getTheme());
+	//Remember to add later setter
+	const [theme] = useState<Theme>(() => getTheme());
 	useEffect(() => {
 		applyTheme(theme);
 	}, [theme]);
