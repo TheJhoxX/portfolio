@@ -169,7 +169,7 @@ const renderExperience = (): ReactNode => {
 							position: 'Product Delivery Intern - X Delivery',
 							startDate: 'Feb 2026',
 							description:
-								'Development of new features and maintenance of projects for the Energy sector',
+								'Development of new features and maintenance of projects for the Gas & Oil sector',
 						},
 					]}
 				/>
