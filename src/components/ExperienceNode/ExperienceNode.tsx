@@ -29,7 +29,7 @@ export const ExperienceNode = ({
 					<img
 						src={imgSrc}
 						alt={company}
-						className='w-40 aspect-video object-fill rounded-xl'
+						className='w-full h-auto md:w-40 md:aspect-video object-fill rounded-xl'
 						style={{ backgroundColor: companyColor ?? 'transparent' }}
 					/>
 				</div>
@@ -37,7 +37,7 @@ export const ExperienceNode = ({
 		}
 
 		return (
-			<div className='relative flex items-center justify-center'>
+			<div className='relative flex justify-center'>
 				<span
 					className='block w-4 h-4 rounded-full'
 					style={{ backgroundColor: timelineColor }}
@@ -51,32 +51,43 @@ export const ExperienceNode = ({
 		const isLast = index === experiences.length - 1;
 
 		return (
-			<div key={key} className='grid grid-cols-[10rem_1fr] gap-6 items-center'>
-				<div className='relative flex justify-center items-center self-stretch'>
-					{index > 0 && (
-						<div
-							className='absolute left-1/2 top-0 bottom-1/2 -translate-x-1/2 w-0.5'
-							style={{ backgroundColor: timelineColor }}
-						/>
-					)}
+			<div
+				key={key}
+				className='flex flex-col md:grid md:grid-cols-[10rem_1fr] md:gap-6'
+			>
+				{/* MOBILE: imagen arriba */}
+				{index === 0 && imgSrc && (
+					<img
+						src={imgSrc}
+						alt={company}
+						className='w-full aspect-video object-fill rounded-xl mb-3 md:hidden'
+						style={{ backgroundColor: companyColor ?? 'transparent' }}
+					/>
+				)}
 
+				{/* DESKTOP: timeline */}
+				<div className='relative hidden md:flex justify-center self-stretch'>
 					{!isLast && (
 						<div
-							className='absolute left-1/2 top-1/2 bottom-0 -translate-x-1/2 w-0.5'
+							className='absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-0.5'
 							style={{ backgroundColor: timelineColor }}
 						/>
 					)}
 
-					{renderMarker(index)}
+					<div className='relative z-10'>{renderMarker(index)}</div>
 				</div>
 
-				<div>
-					<p className='font-bold text-xl'>
+				{/* CONTENIDO */}
+				<div
+					className='pl-4  border-l-4 md:border-l-0'
+					style={{ borderColor: companyColor ?? timelineColor }}
+				>
+					<p className='font-bold text-2xl'>
 						{experience.position} at{' '}
 						<span style={{ color: companyColor ?? 'inherit' }}>{company}</span>
 					</p>
 
-					<p className='font-semibold pb-2'>
+					<p className='font-semibold pb-2 text-xl md:text-base'>
 						{experience.startDate} - {experience.endDate || 'Present'}
 					</p>
 
@@ -89,7 +100,7 @@ export const ExperienceNode = ({
 	};
 
 	return (
-		<div className='flex flex-col'>
+		<div className='flex flex-col gap-6'>
 			{experiences.map((experience, index) => renderNode(experience, index))}
 		</div>
 	);
