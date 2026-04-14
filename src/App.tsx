@@ -142,7 +142,7 @@ const renderAboutMe = (): ReactNode => {
 						<img
 							src='/bcg-logo.svg'
 							alt='BCG'
-							className='h-8 w-auto'
+							className='h-8 w-auto bg-[#00532f] rounded-sm p-0.5'
 							loading='lazy'
 						/>
 					}
