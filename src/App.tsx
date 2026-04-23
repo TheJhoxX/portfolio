@@ -92,6 +92,7 @@ const renderProjects = (): ReactNode => {
 					<SiThreedotjs />,
 					<RiTailwindCssFill />,
 				]}
+				link='https://sugusuva.es'
 			/>
 			<Project
 				date='2023'
@@ -160,7 +161,7 @@ const renderExperience = (): ReactNode => {
 			<h2 className='text-6xl md:text-7xl font-bold' id='experience'>
 				Experience
 			</h2>
-			<div className='bubble w-full flex flex-col items-start gap-4 rounded-xl text-base p-4'>
+			<div className='bubble w-8/10 md:w-full md:max-w-6xl flex flex-col items-start gap-4 rounded-xl text-base p-4'>
 				<ExperienceNode
 					company='Boston Consulting Group (BCG)'
 					imgSrc='/bcg-logo.svg'
@@ -170,7 +171,7 @@ const renderExperience = (): ReactNode => {
 							position: 'Product Delivery Intern - X Delivery',
 							startDate: 'Feb 2026',
 							description:
-								'Development of new features and maintenance of projects for the Energy sector',
+								'Development of new features and maintenance of projects for the Gas & Oil sector',
 						},
 					]}
 				/>

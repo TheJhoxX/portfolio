@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { FaLink } from 'react-icons/fa';
 
 export type ProjectProps = {
 	title: string;
@@ -6,27 +7,8 @@ export type ProjectProps = {
 	description: string;
 	technologies: ReactNode[];
 	imgName: string;
+	link?: string;
 };
-
-type BubbleIconProps = {
-	children: ReactNode;
-	className?: string;
-};
-
-export function BubbleIcon({
-	children,
-	className = '',
-}: BubbleIconProps): ReactNode {
-	return (
-		<span
-			className={`bubble p-2 inline-flex items-center justify-center rounded-full ${className}`}
-		>
-			<span className='text-3xl' aria-hidden='true'>
-				{children}
-			</span>
-		</span>
-	);
-}
 
 export function Project(props: ProjectProps): ReactNode {
 	return defaultProject(props);
@@ -67,10 +49,20 @@ const defaultProject = (props: ProjectProps): ReactNode => {
 			<div className='h-full flex flex-col gap-2'>
 				<h2 className='text-4xl font-bold'>{props.title}</h2>
 				<h4 className='text-lg font-semibold'>{props.date}</h4>
-				<p className={'max-w-sm p-2 h-full bubble rounded-xl'}>
+				<p className={'max-w-sm p-2 h-full bubble rounded-xl text-pretty'}>
 					{props.description}
 				</p>
-				<div className='flex items-center gap-4'></div>
+				{props.link && (
+					<a
+						href={props.link}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='font-semibold py-1 px-2 w-fit transition-colors duration-300 hover:text-purple-600 bubble rounded-xl inline-flex gap-2 items-center'
+					>
+						Visite site
+						<FaLink />
+					</a>
+				)}
 			</div>
 		</div>
 	);
