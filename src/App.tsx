@@ -184,7 +184,7 @@ const renderExperience = (): ReactNode => {
 							position: "Product Delivery Intern - X Delivery",
 							startDate: "Feb 2026",
 							description:
-								"Development of new features and maintenance of projects for the Gas & Oil sector",
+								"Frontend development in React. Migration of components from JSX to TSX, strict typing and refactoring for maintainability. Building interactive dashboards and data visualizations. Translating business requirements into concrete UI solutions.",
 						},
 					]}
 				/>
